@@ -53,31 +53,14 @@ function Footer() {
                 About
               </Link>
             </li>
-            <li>
-              <Link href="/contact" className="footer-link">
-                Contact
-              </Link>
-            </li>
           </ul>
         </div>
         <div className="footer-column">
           <h4>Services</h4>
           <ul className="footer-links">
-            <li>
-              <Link href="#" className="footer-link">
-                Creative Strategy
-              </Link>
-            </li>
-            <li>
-              <Link href="#" className="footer-link">
-                Video Production
-              </Link>
-            </li>
-            <li>
-              <Link href="#" className="footer-link">
-                Media Buying
-              </Link>
-            </li>
+            <li>Creative Strategy</li>
+            <li>Video Production</li>
+            <li>Media Buying</li>
           </ul>
         </div>
         <div className="footer-column">
@@ -93,16 +76,11 @@ function Footer() {
                 Privacy Policy
               </Link>
             </li>
-            <li>
-              <Link href="#" className="footer-link">
-                Terms
-              </Link>
-            </li>
           </ul>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2025 Paid Creative. All rights reserved.</p>
+        <p>&copy; 2026 Paid Creative. All rights reserved.</p>
       </div>
     </footer>
   );
