@@ -165,6 +165,7 @@ body {
   position: relative;
   overflow: hidden;
   z-index: 1;
+  box-shadow: 0 10px 30px rgba(48, 149, 238, 0.4);
 }
 
 .cta-button::before {
@@ -185,6 +186,7 @@ body {
 
 .cta-button:hover {
   color: var(--color-black);
+  box-shadow: 0 20px 40px rgba(48, 149, 238, 0.5);
 }
 
 /* ── Trust / Social Proof Section ── */
