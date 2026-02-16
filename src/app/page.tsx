@@ -10,25 +10,25 @@ function Header() {
         <nav className="hidden md:flex items-center gap-8">
           <Link
             href="/"
-            className="text-sm text-muted hover:text-foreground transition-colors"
+            className="text-sm text-muted hover:text-accent transition-colors"
           >
             Home
           </Link>
           <Link
             href="/about"
-            className="text-sm text-muted hover:text-foreground transition-colors"
+            className="text-sm text-muted hover:text-accent transition-colors"
           >
             About
           </Link>
           <Link
             href="/case-studies"
-            className="text-sm text-muted hover:text-foreground transition-colors"
+            className="text-sm text-muted hover:text-accent transition-colors"
           >
             Case Studies
           </Link>
           <Link
             href="/contact"
-            className="text-sm text-muted hover:text-foreground transition-colors"
+            className="text-sm text-muted hover:text-accent transition-colors"
           >
             Contact
           </Link>
@@ -44,7 +44,7 @@ function Hero() {
       <div className="mx-auto max-w-4xl px-6 text-center">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]">
           Men&apos;s Apparel strategy that{" "}
-          <span className="italic font-normal text-muted">
+          <span className="italic font-normal text-accent">
             scales your brand
           </span>
         </h1>
@@ -55,7 +55,7 @@ function Hero() {
         <div className="mt-10">
           <Link
             href="/birddogs"
-            className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-8 py-3.5 text-sm font-medium hover:bg-accent transition-colors"
+            className="inline-flex items-center gap-2 rounded-md bg-accent text-white px-7 py-3 text-sm font-medium tracking-wide hover:bg-accent-hover transition-colors"
           >
             $100M Case Study
             <svg
@@ -196,7 +196,7 @@ function Credentials() {
               key={s.label}
               className="rounded-2xl border border-border bg-card p-8"
             >
-              <p className="text-3xl md:text-4xl font-bold tracking-tight">
+              <p className="text-3xl md:text-4xl font-bold tracking-tight text-accent">
                 {s.value}
               </p>
               <p className="mt-2 text-sm font-semibold text-foreground/80">
@@ -226,7 +226,7 @@ function CTA() {
         <div className="mt-10">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-8 py-3.5 text-sm font-medium hover:bg-accent transition-colors"
+            className="inline-flex items-center gap-2 rounded-md bg-accent text-white px-7 py-3 text-sm font-medium tracking-wide hover:bg-accent-hover transition-colors"
           >
             Schedule Strategy Session
             <svg
@@ -256,25 +256,25 @@ function Footer() {
         <nav className="flex items-center gap-8">
           <Link
             href="/"
-            className="text-sm text-muted hover:text-foreground transition-colors"
+            className="text-sm text-muted hover:text-accent transition-colors"
           >
             Home
           </Link>
           <Link
             href="/about"
-            className="text-sm text-muted hover:text-foreground transition-colors"
+            className="text-sm text-muted hover:text-accent transition-colors"
           >
             About
           </Link>
           <Link
             href="/case-studies"
-            className="text-sm text-muted hover:text-foreground transition-colors"
+            className="text-sm text-muted hover:text-accent transition-colors"
           >
             Case Studies
           </Link>
           <Link
             href="/contact"
-            className="text-sm text-muted hover:text-foreground transition-colors"
+            className="text-sm text-muted hover:text-accent transition-colors"
           >
             Contact
           </Link>
