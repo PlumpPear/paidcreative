@@ -549,6 +549,117 @@ body {
   font-size: 0.75rem;
 }
 
+/* ── About Page ── */
+.about-nav {
+  position: relative;
+  background: var(--color-white);
+}
+
+.about-letter {
+  padding: 6rem 6% 8rem;
+  background: var(--color-white);
+  color: var(--color-black);
+  display: flex;
+  justify-content: center;
+}
+
+.about-letter-content {
+  max-width: 680px;
+  width: 100%;
+}
+
+.about-heading {
+  font-family: "Epilogue", sans-serif;
+  font-size: 2.75rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+  color: var(--color-black);
+}
+
+.about-subheading {
+  font-family: "Epilogue", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #555;
+  margin-bottom: 3rem;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.about-body {
+  font-family: "Epilogue", sans-serif;
+  font-size: 1rem;
+  line-height: 1.85;
+  color: #333;
+}
+
+.about-body p {
+  margin-bottom: 1.5rem;
+}
+
+.about-body strong {
+  font-weight: 600;
+  color: var(--color-black);
+}
+
+.about-body h2 {
+  font-family: "Epilogue", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-black);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.about-pullquote {
+  font-style: italic;
+  color: #555;
+  border-left: 3px solid var(--color-blue);
+  padding-left: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.about-signoff {
+  margin-top: 3rem;
+}
+
+.about-signoff > p:first-child {
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.about-signatures {
+  width: 280px;
+  height: auto;
+  margin-bottom: 0.75rem;
+  opacity: 0.85;
+}
+
+.about-names {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #555;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 768px) {
+  .about-letter {
+    padding: 4rem 5% 6rem;
+  }
+
+  .about-heading {
+    font-size: 2rem;
+  }
+
+  .about-signatures {
+    width: 220px;
+  }
+}
+
 /* ── Animations ── */
 @keyframes fadeInUp {
   from {
