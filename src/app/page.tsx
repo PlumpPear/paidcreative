@@ -61,13 +61,13 @@ function TrustSection() {
     <section className="trust-section">
       <div className="trust-content">
         <div className="section-header">
-          <p className="section-label">
-            Trusted by Fast Moving Founders and GTM Teams
-          </p>
           <h2 className="section-title">
             We help <strong>Men&apos;s Apparel leaders</strong> build highly
             diversified creative portfolios
           </h2>
+          <p className="section-subtitle">
+            Trusted by fast moving founders and GTM teams.
+          </p>
         </div>
         <div className="logo-grid">
           {clients.map((client) => (
