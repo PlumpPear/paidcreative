@@ -361,7 +361,8 @@ body {
 /* ── Stats ── */
 .stats {
   padding: 8rem 6%;
-  background: var(--color-white);
+  background: var(--color-gray-900);
+  color: var(--color-white);
 }
 
 .stats .section-header {
@@ -369,7 +370,7 @@ body {
 }
 
 .stats .section-title strong {
-  color: var(--color-black);
+  color: var(--color-blue);
 }
 
 .stats-grid {
@@ -383,14 +384,14 @@ body {
 .stat-item {
   text-align: center;
   padding: 3rem 2rem;
-  background: var(--color-gray-50);
+  background: rgba(255, 255, 255, 0.05);
   border-left: 4px solid var(--color-blue);
   transition: all 0.3s ease;
 }
 
 .stat-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
 }
 
 .stat-number {
@@ -406,20 +407,20 @@ body {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: var(--color-black);
+  color: var(--color-white);
 }
 
 .stat-description {
   font-size: 0.8125rem;
-  color: #666;
+  color: rgba(255, 255, 255, 0.5);
   line-height: 1.6;
 }
 
 /* ── Final CTA ── */
 .final-cta {
   padding: 8rem 6%;
-  background: var(--color-gray-900);
-  color: var(--color-white);
+  background: var(--color-white);
+  color: var(--color-black);
   text-align: center;
 }
 
@@ -436,11 +437,12 @@ body {
   line-height: 1.2;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  color: var(--color-black);
 }
 
 .final-cta p {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: #666;
   margin-bottom: 3rem;
   line-height: 1.7;
 }
