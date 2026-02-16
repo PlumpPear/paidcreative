@@ -203,9 +203,9 @@ function FinalCTA() {
       <div className="final-cta-content">
         <h2>Partner with us</h2>
         <p>We&apos;re a hands on, founder lead service.</p>
-        <Link href="#contact" className="cta-button">
+        <a href="https://calendar.app.google/rrGjcCYtfnHjAqvz7" target="_blank" rel="noopener noreferrer" className="cta-button">
           Schedule Strategy Session
-        </Link>
+        </a>
       </div>
     </section>
   );
@@ -222,9 +222,9 @@ function Footer() {
             marketing and brand growth. We help 8 and 9-figure brands build
             diversified creative portfolios.
           </p>
-          <Link href="#contact" className="cta-button">
+          <a href="https://calendar.app.google/rrGjcCYtfnHjAqvz7" target="_blank" rel="noopener noreferrer" className="cta-button">
             Get Started
-          </Link>
+          </a>
         </div>
         <div className="footer-column">
           <h4>Company</h4>
