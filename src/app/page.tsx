@@ -9,8 +9,8 @@ function Header() {
           <Image
             src="/paid-creative-pigeon-logo.png"
             alt="Paid Creative"
-            width={80}
-            height={80}
+            width={60}
+            height={60}
             className="nav-logo-img"
           />
         </Link>

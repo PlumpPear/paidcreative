@@ -28,7 +28,7 @@ body {
 
 /* ── Navigation ── */
 .site-nav {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -42,12 +42,12 @@ body {
   max-width: 1600px;
   margin: 0 auto;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
 }
 
 .nav-logo-img {
-  height: 80px;
+  height: 60px;
   width: auto;
   display: block;
   pointer-events: auto;
