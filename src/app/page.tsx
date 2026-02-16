@@ -2,105 +2,70 @@ import Link from "next/link";
 
 function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="mx-auto max-w-6xl flex items-center justify-between px-6 py-4">
-        <Link href="/" className="text-lg font-semibold tracking-tight">
+    <nav className="site-nav">
+      <div className="nav-container">
+        <Link href="/" className="nav-logo">
           Paid Creative
         </Link>
-        <nav className="hidden md:flex items-center gap-8">
-          <Link
-            href="/"
-            className="text-sm text-muted hover:text-accent transition-colors"
-          >
-            Home
-          </Link>
-          <Link
-            href="/about"
-            className="text-sm text-muted hover:text-accent transition-colors"
-          >
-            About
-          </Link>
-          <Link
-            href="/case-studies"
-            className="text-sm text-muted hover:text-accent transition-colors"
-          >
-            Case Studies
-          </Link>
-          <Link
-            href="/contact"
-            className="text-sm text-muted hover:text-accent transition-colors"
-          >
-            Contact
-          </Link>
-        </nav>
+        <ul className="nav-links">
+          <li>
+            <Link href="#case-studies" className="nav-link">
+              Work
+            </Link>
+          </li>
+          <li>
+            <Link href="#about" className="nav-link">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link href="#contact" className="nav-link">
+              Contact
+            </Link>
+          </li>
+        </ul>
       </div>
-    </header>
+    </nav>
   );
 }
 
 function Hero() {
   return (
-    <section className="relative pt-40 pb-24 md:pt-52 md:pb-32">
-      <div className="mx-auto max-w-4xl px-6 text-center">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]">
-          Men&apos;s Apparel strategy that{" "}
-          <span className="italic font-normal text-accent">
-            scales your brand
-          </span>
+    <section className="hero">
+      <div className="hero-content fade-in-up">
+        <h1>
+          Men&apos;s Apparel strategy that <em>scales your brand</em>
         </h1>
-        <p className="mt-6 text-lg md:text-xl text-muted max-w-2xl mx-auto leading-relaxed">
+        <p className="hero-description">
           Improve Meta ROAS in 2 weeks through better creative and a
           merchandising focused account structure.
         </p>
-        <div className="mt-10">
-          <Link
-            href="/birddogs"
-            className="inline-flex items-center gap-2 rounded-md bg-accent text-white px-7 py-3 text-sm font-medium tracking-wide hover:bg-accent-hover transition-colors"
-          >
-            $100M Case Study
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </Link>
-        </div>
+        <Link href="#case-studies" className="cta-button">
+          $100M Case Study
+        </Link>
       </div>
     </section>
   );
 }
 
-function SocialProof() {
+function TrustSection() {
   const clients = ["Birddogs", "Poncho", "DCR", "The Perfect Jean", "Stately"];
 
   return (
-    <section className="py-24 border-t border-border">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
-            We help{" "}
-            <span className="font-bold">Men&apos;s Apparel leaders</span>{" "}
-            <span className="font-bold">
-              build highly diversified creative portfolios
-            </span>
-          </h2>
-          <p className="mt-4 text-muted">
-            Trusted by fast moving founders and GTM teams.
+    <section className="trust-section">
+      <div className="trust-content">
+        <div className="section-header">
+          <p className="section-label">
+            Trusted by Fast Moving Founders and GTM Teams
           </p>
+          <h2 className="section-title">
+            We help <strong>Men&apos;s Apparel leaders</strong> build highly
+            diversified creative portfolios
+          </h2>
         </div>
-        <div className="mt-16 flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
+        <div className="logo-grid">
           {clients.map((client) => (
-            <div
-              key={client}
-              className="text-lg md:text-xl font-semibold text-muted/60 tracking-wide uppercase"
-            >
+            <div key={client} className="client-logo">
               {client}
             </div>
           ))}
@@ -116,133 +81,105 @@ function Testimonials() {
       quote:
         "Sam and Madison built birddogs with me. Two amazing operators who were key to the founding team",
       name: "Peter Baldwin",
-      title: "Founder & CEO, birddogs",
+      role: "Founder & CEO",
+      company: "birddogs",
     },
     {
       quote:
         "The guys behind Paid Creative run our entire marketing team. Creative quality has notably improved.",
       name: "Ovadia Labaton",
-      title: "Co-Founder, The Perfect Jean",
+      role: "Co-Founder",
+      company: "The Perfect Jean",
     },
     {
       quote:
         "Paid Creative shipped us our highest spending & converting ads in Q4. Plus, they manage all our paid channels.",
       name: "Clayton Spencer",
-      title: "Founder, Poncho",
+      role: "Founder",
+      company: "Poncho",
     },
   ];
 
   return (
-    <section className="py-24 border-t border-border">
-      <div className="mx-auto max-w-6xl px-6">
-        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-center">
-          Trusted by 8 and 9 figure Founders
-        </h2>
-        <div className="mt-16 grid md:grid-cols-3 gap-8">
-          {testimonials.map((t) => (
-            <div
-              key={t.name}
-              className="rounded-2xl border border-border bg-card p-8 flex flex-col justify-between"
-            >
-              <blockquote className="text-base leading-relaxed text-foreground/90">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
-              <div className="mt-8 pt-6 border-t border-border">
-                <p className="text-sm font-semibold">{t.name}</p>
-                <p className="text-sm text-muted mt-0.5">{t.title}</p>
+    <section className="testimonials">
+      <div className="section-header">
+        <p className="section-label">Client Stories</p>
+        <h2 className="section-title">Trusted by 8 and 9 figure Founders</h2>
+      </div>
+      <div className="testimonials-grid">
+        {testimonials.map((t) => (
+          <div key={t.name} className="testimonial-card">
+            <p className="quote">&ldquo;{t.quote}&rdquo;</p>
+            <div className="author">
+              <div className="author-image" />
+              <div className="author-info">
+                <h4>{t.name}</h4>
+                <p>
+                  {t.role}, <span className="company">{t.company}</span>
+                </p>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );
 }
 
-function Credentials() {
+function Stats() {
   const stats = [
     {
       value: "$100M+",
       label: "Annual Spend",
-      description: "Managed across our portfolio of men's apparel brands.",
+      description: "Managed across Meta platforms with proven performance",
     },
     {
       value: "250+",
       label: "Videos Per Month",
-      description: "High-volume creative production at scale.",
+      description:
+        "High-volume creative production without compromising quality",
     },
     {
       value: "Meta",
       label: "Disruptors Partners",
-      description: "Recognized partner in the Meta ecosystem.",
+      description: "Official Meta partnership for creative excellence",
     },
     {
       value: "5",
-      label: "Brands scaled to $10M+",
-      description: "We scaled birddogs to well over $80M.",
+      label: "Brands Scaled to $10M+",
+      description: "We scaled birddogs to well over $80M",
     },
   ];
 
   return (
-    <section className="py-24 border-t border-border">
-      <div className="mx-auto max-w-6xl px-6">
-        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-center">
-          We don&apos;t guess. Our Work is{" "}
-          <span className="font-bold">Proven At Scale.</span>
+    <section className="stats">
+      <div className="section-header">
+        <h2 className="section-title">
+          <strong>We don&apos;t guess.</strong> Our Work is Proven At Scale.
         </h2>
-        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {stats.map((s) => (
-            <div
-              key={s.label}
-              className="rounded-2xl border border-border bg-card p-8"
-            >
-              <p className="text-3xl md:text-4xl font-bold tracking-tight text-accent">
-                {s.value}
-              </p>
-              <p className="mt-2 text-sm font-semibold text-foreground/80">
-                {s.label}
-              </p>
-              <p className="mt-3 text-sm text-muted leading-relaxed">
-                {s.description}
-              </p>
-            </div>
-          ))}
-        </div>
+      </div>
+      <div className="stats-grid">
+        {stats.map((s) => (
+          <div key={s.label} className="stat-item">
+            <div className="stat-number">{s.value}</div>
+            <div className="stat-label">{s.label}</div>
+            <p className="stat-description">{s.description}</p>
+          </div>
+        ))}
       </div>
     </section>
   );
 }
 
-function CTA() {
+function FinalCTA() {
   return (
-    <section className="py-24 border-t border-border">
-      <div className="mx-auto max-w-3xl px-6 text-center">
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-          Partner with us
-        </h2>
-        <p className="mt-4 text-lg text-muted">
-          We&apos;re a hands on, founder lead service.
-        </p>
-        <div className="mt-10">
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 rounded-md bg-accent text-white px-7 py-3 text-sm font-medium tracking-wide hover:bg-accent-hover transition-colors"
-          >
-            Schedule Strategy Session
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </Link>
-        </div>
+    <section className="final-cta">
+      <div className="final-cta-content">
+        <h2>Partner with us</h2>
+        <p>We&apos;re a hands on, founder lead service.</p>
+        <Link href="#contact" className="cta-button">
+          Schedule Strategy Session
+        </Link>
       </div>
     </section>
   );
@@ -250,35 +187,82 @@ function CTA() {
 
 function Footer() {
   return (
-    <footer className="border-t border-border py-12">
-      <div className="mx-auto max-w-6xl px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-        <p className="text-sm font-semibold tracking-tight">Paid Creative</p>
-        <nav className="flex items-center gap-8">
-          <Link
-            href="/"
-            className="text-sm text-muted hover:text-accent transition-colors"
-          >
-            Home
+    <footer className="site-footer">
+      <div className="footer-content">
+        <div className="footer-brand">
+          <h3>Paid Creative</h3>
+          <p>
+            Men&apos;s apparel creative agency specializing in performance
+            marketing and brand growth. We help 8 and 9-figure brands build
+            diversified creative portfolios.
+          </p>
+          <Link href="#contact" className="cta-button">
+            Get Started
           </Link>
-          <Link
-            href="/about"
-            className="text-sm text-muted hover:text-accent transition-colors"
-          >
-            About
-          </Link>
-          <Link
-            href="/case-studies"
-            className="text-sm text-muted hover:text-accent transition-colors"
-          >
-            Case Studies
-          </Link>
-          <Link
-            href="/contact"
-            className="text-sm text-muted hover:text-accent transition-colors"
-          >
-            Contact
-          </Link>
-        </nav>
+        </div>
+        <div className="footer-column">
+          <h4>Company</h4>
+          <ul className="footer-links">
+            <li>
+              <Link href="/" className="footer-link">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link href="/about" className="footer-link">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="footer-link">
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="footer-column">
+          <h4>Services</h4>
+          <ul className="footer-links">
+            <li>
+              <Link href="#" className="footer-link">
+                Creative Strategy
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="footer-link">
+                Video Production
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="footer-link">
+                Media Buying
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="footer-column">
+          <h4>Resources</h4>
+          <ul className="footer-links">
+            <li>
+              <Link href="#" className="footer-link">
+                Case Studies
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="footer-link">
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="footer-link">
+                Terms
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className="footer-bottom">
+        <p>&copy; 2025 Paid Creative. All rights reserved.</p>
       </div>
     </footer>
   );
@@ -290,10 +274,10 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <SocialProof />
+        <TrustSection />
         <Testimonials />
-        <Credentials />
-        <CTA />
+        <Stats />
+        <FinalCTA />
       </main>
       <Footer />
     </>
