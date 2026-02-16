@@ -64,8 +64,8 @@ function TrustSection() {
       <div className="trust-content">
         <div className="section-header">
           <h2 className="section-title">
-            We help <strong>Men&apos;s Apparel leaders</strong> build highly
-            diversified creative portfolios
+            We help <strong>Men&apos;s Apparel leaders</strong> build<br />
+            highly diversified creative portfolios
           </h2>
           <p className="section-subtitle">
             Trusted by fast moving founders and GTM teams.
