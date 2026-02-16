@@ -9,28 +9,11 @@ function Header() {
           <Image
             src="/paid-creative-pigeon-logo.png"
             alt="Paid Creative"
-            width={44}
-            height={44}
+            width={80}
+            height={80}
             className="nav-logo-img"
           />
         </Link>
-        <ul className="nav-links">
-          <li>
-            <Link href="#case-studies" className="nav-link">
-              Work
-            </Link>
-          </li>
-          <li>
-            <Link href="#about" className="nav-link">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link href="#contact" className="nav-link">
-              Contact
-            </Link>
-          </li>
-        </ul>
       </div>
     </nav>
   );
