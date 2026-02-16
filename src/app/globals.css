@@ -227,25 +227,31 @@ body {
 }
 
 .logo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 3.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem 4rem;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
 }
 
 .client-logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #ccc;
-  letter-spacing: -0.01em;
-  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: default;
 }
 
-.client-logo:hover {
-  color: var(--color-black);
-  transform: scale(1.05);
+.client-logo-img {
+  height: 35px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(0);
+  opacity: 0.25;
+  transition: opacity 0.3s ease;
+}
+
+.client-logo:hover .client-logo-img {
+  opacity: 0.55;
 }
 
 /* ── Testimonials ── */
@@ -582,7 +588,10 @@ body {
   }
 
   .logo-grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 2rem;
+    gap: 2rem 3rem;
+  }
+
+  .client-logo-img {
+    height: 28px;
   }
 }

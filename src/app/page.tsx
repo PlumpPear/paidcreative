@@ -49,7 +49,13 @@ function Hero() {
 }
 
 function TrustSection() {
-  const clients = ["Birddogs", "Poncho", "DCR", "The Perfect Jean", "Stately"];
+  const clients = [
+    { name: "Birddogs", logo: "/birddogs_logo_1.png" },
+    { name: "Poncho", logo: "/poncho_logo.png" },
+    { name: "Diamond Cross Ranch", logo: "/DCR_Logo.png" },
+    { name: "The Perfect Jean", logo: "/tpj_logo copy.png" },
+    { name: "Stately", logo: "/stately_logo.png" },
+  ];
 
   return (
     <section className="trust-section">
@@ -65,8 +71,12 @@ function TrustSection() {
         </div>
         <div className="logo-grid">
           {clients.map((client) => (
-            <div key={client} className="client-logo">
-              {client}
+            <div key={client.name} className="client-logo">
+              <img
+                src={client.logo}
+                alt={client.name}
+                className="client-logo-img"
+              />
             </div>
           ))}
         </div>
