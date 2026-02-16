@@ -152,6 +152,10 @@ body {
   font-weight: 400;
 }
 
+.hero .cta-button {
+  padding: 1.25rem 5rem;
+}
+
 /* ── CTA Button ── */
 .cta-button {
   display: inline-block;
