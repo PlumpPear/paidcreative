@@ -1,5 +1,7 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import { useRef, useEffect } from "react";
 
 function Header() {
   return (
@@ -20,14 +22,25 @@ function Header() {
 }
 
 function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.setAttribute("webkit-playsinline", "true");
+    video.play().catch(() => {});
+  }, []);
+
   return (
     <section className="hero">
       <video
+        ref={videoRef}
         className="hero-video"
         autoPlay
         loop
         muted
         playsInline
+        preload="auto"
       >
         <source src="/Paid_Creative_SizzleReel.mp4" type="video/mp4" />
       </video>
