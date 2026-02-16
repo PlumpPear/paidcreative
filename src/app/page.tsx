@@ -109,6 +109,7 @@ function Testimonials() {
       name: "Peter Baldwin",
       role: "Founder & CEO",
       company: "birddogs",
+      image: "/paid_creative_testimonial_1.jpg",
     },
     {
       quote:
@@ -116,6 +117,7 @@ function Testimonials() {
       name: "Ovadia Labaton",
       role: "Co-Founder",
       company: "The Perfect Jean",
+      image: "/paid_creative_testimonial_2.jpeg",
     },
     {
       quote:
@@ -123,6 +125,7 @@ function Testimonials() {
       name: "Clayton Spencer",
       role: "Founder",
       company: "Poncho",
+      image: "/paid_creative_testimonial_3.jpeg",
     },
   ];
 
@@ -137,7 +140,7 @@ function Testimonials() {
           <div key={t.name} className="testimonial-card">
             <p className="quote">&ldquo;{t.quote}&rdquo;</p>
             <div className="author">
-              <div className="author-image" />
+              <img src={t.image} alt={t.name} className="author-image" />
               <div className="author-info">
                 <h4>{t.name}</h4>
                 <p>
