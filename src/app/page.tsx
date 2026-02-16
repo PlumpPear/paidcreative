@@ -22,6 +22,16 @@ function Header() {
 function Hero() {
   return (
     <section className="hero">
+      <video
+        className="hero-video"
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src="/Paid_Creative_SizzleReel.mp4" type="video/mp4" />
+      </video>
+      <div className="hero-overlay" />
       <div className="hero-content fade-in-up">
         <h1>
           Men&apos;s Apparel strategy that <em>scales your brand</em>
