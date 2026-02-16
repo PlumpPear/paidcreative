@@ -55,7 +55,7 @@ function Hero() {
           Improve Meta ROAS in 2 weeks through better creative and a
           merchandising focused account structure.
         </p>
-        <Link href="#case-studies" className="cta-button">
+        <Link href="/birddogs" className="cta-button">
           $100M Case Study
         </Link>
       </div>
@@ -256,7 +256,7 @@ function Footer() {
           <h4>Resources</h4>
           <ul className="footer-links">
             <li>
-              <Link href="#" className="footer-link">
+              <Link href="/birddogs" className="footer-link">
                 Case Studies
               </Link>
             </li>
