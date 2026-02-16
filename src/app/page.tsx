@@ -67,9 +67,9 @@ function TrustSection() {
   const clients = [
     { name: "Birddogs", logo: "/birddogs_logo_1.png", height: 35 },
     { name: "Poncho", logo: "/poncho_logo.png", height: 26 },
-    { name: "Diamond Cross Ranch", logo: "/DCR_Logo.png", height: 45 },
     { name: "The Perfect Jean", logo: "/tpj_logo copy.png", height: 42 },
     { name: "Stately", logo: "/stately_logo.png", height: 24 },
+    { name: "Diamond Cross Ranch", logo: "/DCR_Logo.png", height: 45 },
   ];
 
   return (
