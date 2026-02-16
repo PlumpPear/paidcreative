@@ -35,8 +35,8 @@ function Hero() {
       <div className="hero-content fade-in-up">
         <h1>
           Men&apos;s Apparel<br />
-          strategy that<br />
-          <span className="hero-accent">scales your brand</span>
+          strategy that <span className="hero-accent">scales</span><br />
+          <span className="hero-accent">your brand</span>
         </h1>
         <p className="hero-description">
           Improve Meta ROAS in 2 weeks through better creative and a

@@ -89,7 +89,7 @@ body {
 
 /* ── Hero ── */
 .hero {
-  min-height: 90vh;
+  min-height: 100vh;
   padding: 0 6%;
   background: var(--color-gray-900);
   color: var(--color-white);
