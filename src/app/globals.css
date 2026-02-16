@@ -268,8 +268,8 @@ body {
 /* ── Testimonials ── */
 .testimonials {
   padding: 8rem 6%;
-  background: var(--color-gray-900);
-  color: var(--color-white);
+  background: var(--color-white);
+  color: var(--color-black);
 }
 
 .testimonials .section-header {
@@ -277,11 +277,7 @@ body {
 }
 
 .testimonials .section-label {
-  color: #666;
-}
-
-.testimonials .section-title {
-  color: var(--color-white);
+  color: #999;
 }
 
 .testimonials-grid {
@@ -293,9 +289,9 @@ body {
 }
 
 .testimonial-card {
-  background: #1a1a1a;
+  background: var(--color-gray-50);
   padding: 3.5rem;
-  border: 1px solid #2a2a2a;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   position: relative;
   transition: all 0.4s ease;
 }
@@ -321,7 +317,7 @@ body {
 .quote {
   font-size: 1rem;
   line-height: 1.75;
-  color: #e0e0e0;
+  color: #444;
   margin-bottom: 2.5rem;
   position: relative;
   z-index: 2;
@@ -332,14 +328,14 @@ body {
   align-items: center;
   gap: 1.25rem;
   padding-top: 2.5rem;
-  border-top: 1px solid #2a2a2a;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .author-image {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: #333;
+  background: #ddd;
   border: 2px solid var(--color-blue);
   flex-shrink: 0;
 }
@@ -347,7 +343,7 @@ body {
 .author-info h4 {
   font-size: 0.9375rem;
   font-weight: 600;
-  color: var(--color-white);
+  color: var(--color-black);
   margin-bottom: 0.35rem;
 }
 
