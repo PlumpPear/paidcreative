@@ -130,11 +130,11 @@ body {
 
 .hero h1 {
   font-family: "Anton", sans-serif;
-  font-size: 6vh;
+  font-size: calc(3.6vw + 1rem);
   font-weight: 400;
-  line-height: 1.05;
+  line-height: 1.2;
   margin-bottom: 2rem;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
@@ -215,11 +215,11 @@ body {
 
 .section-title {
   font-family: "Anton", sans-serif;
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-size: calc(2.16vw + 1rem);
   font-weight: 400;
-  line-height: 1.15;
+  line-height: 1.2;
   margin-bottom: 1rem;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
@@ -434,11 +434,11 @@ body {
 
 .final-cta h2 {
   font-family: "Anton", sans-serif;
-  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-size: calc(2.16vw + 1rem);
   font-weight: 400;
   margin-bottom: 1.5rem;
-  line-height: 1.15;
-  letter-spacing: 0.01em;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
@@ -562,6 +562,28 @@ body {
 }
 
 /* ── Responsive ── */
+@media (min-width: 2000px) {
+  .hero h1 {
+    font-size: 4rem;
+  }
+
+  .section-title,
+  .final-cta h2 {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 767px) and (orientation: portrait) {
+  .hero h1 {
+    font-size: calc(3 * 0.012 * min(100vh, 900px) + 1rem);
+  }
+
+  .section-title,
+  .final-cta h2 {
+    font-size: calc(1.8 * 0.012 * min(100vh, 900px) + 1rem);
+  }
+}
+
 @media (max-width: 1024px) {
   .site-nav {
     padding: 1.5rem 5%;
