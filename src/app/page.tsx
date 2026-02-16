@@ -1,11 +1,18 @@
 import Link from "next/link";
+import Image from "next/image";
 
 function Header() {
   return (
     <nav className="site-nav">
       <div className="nav-container">
-        <Link href="/" className="nav-logo">
-          Paid Creative
+        <Link href="/">
+          <Image
+            src="/paid-creative-pigeon-logo.png"
+            alt="Paid Creative"
+            width={44}
+            height={44}
+            className="nav-logo-img"
+          />
         </Link>
         <ul className="nav-links">
           <li>

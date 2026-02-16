@@ -48,12 +48,10 @@ body {
   align-items: center;
 }
 
-.nav-logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--color-black);
-  text-decoration: none;
+.nav-logo-img {
+  height: 44px;
+  width: auto;
+  display: block;
 }
 
 .nav-links {
