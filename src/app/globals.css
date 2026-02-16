@@ -62,7 +62,7 @@ body {
 .nav-link {
   text-decoration: none;
   color: var(--color-black);
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 500;
   transition: color 0.3s ease;
   position: relative;
@@ -126,7 +126,7 @@ body {
 
 .hero h1 {
   font-family: "Anton", sans-serif;
-  font-size: clamp(2.625rem, 5.25vw, 5.25rem);
+  font-size: clamp(3rem, 5vw, 5rem);
   font-weight: 400;
   line-height: 1.05;
   margin-bottom: 2rem;
@@ -136,10 +136,11 @@ body {
 
 .hero-accent {
   color: var(--color-blue);
+  font-style: italic;
 }
 
 .hero-description {
-  font-size: 0.9375rem;
+  font-size: 1.125rem;
   color: rgba(255, 255, 255, 0.7);
   max-width: 650px;
   margin: 0 auto 3rem;
@@ -155,7 +156,7 @@ body {
   color: var(--color-white);
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -200,7 +201,7 @@ body {
 }
 
 .section-label {
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -210,7 +211,7 @@ body {
 
 .section-title {
   font-family: "Anton", sans-serif;
-  font-size: clamp(1.875rem, 3vw, 3rem);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
   font-weight: 400;
   line-height: 1.15;
   margin-bottom: 1rem;
@@ -223,7 +224,7 @@ body {
 }
 
 .section-subtitle {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: #666;
   font-weight: 400;
 }
@@ -306,7 +307,7 @@ body {
 }
 
 .quote {
-  font-size: 0.85rem;
+  font-size: 1rem;
   line-height: 1.75;
   color: #e0e0e0;
   margin-bottom: 2.5rem;
@@ -332,14 +333,14 @@ body {
 }
 
 .author-info h4 {
-  font-size: 0.8rem;
+  font-size: 0.9375rem;
   font-weight: 600;
   color: var(--color-white);
   margin-bottom: 0.35rem;
 }
 
 .author-info p {
-  font-size: 0.7rem;
+  font-size: 0.8125rem;
   color: #888;
   line-height: 1.5;
 }
@@ -382,7 +383,7 @@ body {
 
 .stat-number {
   font-family: "Anton", sans-serif;
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 400;
   color: var(--color-blue);
   margin-bottom: 0.75rem;
@@ -390,14 +391,14 @@ body {
 }
 
 .stat-label {
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: var(--color-black);
 }
 
 .stat-description {
-  font-size: 0.7rem;
+  font-size: 0.8125rem;
   color: #666;
   line-height: 1.6;
 }
@@ -417,7 +418,7 @@ body {
 
 .final-cta h2 {
   font-family: "Anton", sans-serif;
-  font-size: clamp(2.25rem, 3.75vw, 4.125rem);
+  font-size: clamp(2.5rem, 4vw, 4rem);
   font-weight: 400;
   margin-bottom: 1.5rem;
   line-height: 1.15;
@@ -426,7 +427,7 @@ body {
 }
 
 .final-cta p {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 3rem;
   line-height: 1.7;
@@ -461,7 +462,7 @@ body {
 
 .footer-brand h3 {
   font-family: "Anton", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 400;
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -471,11 +472,11 @@ body {
   color: #888;
   line-height: 1.75;
   margin-bottom: 2rem;
-  font-size: 0.7rem;
+  font-size: 0.8125rem;
 }
 
 .footer-column h4 {
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -494,7 +495,7 @@ body {
 .footer-link {
   color: #888;
   text-decoration: none;
-  font-size: 0.7rem;
+  font-size: 0.8125rem;
   transition: color 0.3s ease;
   position: relative;
 }
@@ -525,7 +526,7 @@ body {
   border-top: 1px solid #222;
   text-align: center;
   color: #555;
-  font-size: 0.65rem;
+  font-size: 0.75rem;
 }
 
 /* ── Animations ── */
