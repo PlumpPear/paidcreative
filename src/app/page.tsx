@@ -99,7 +99,7 @@ function Testimonials() {
       name: "Ovadia Labaton",
       role: "Co-Founder",
       company: "The Perfect Jean",
-      image: "/paid_creative_testimonial_2.jpeg",
+      image: "/paid_creative_testimonial_3.jpeg",
     },
     {
       quote:
@@ -107,7 +107,7 @@ function Testimonials() {
       name: "Clayton Spencer",
       role: "Founder",
       company: "Poncho",
-      image: "/paid_creative_testimonial_3.jpeg",
+      image: "/paid_creative_testimonial_2.jpeg",
     },
   ];
 
