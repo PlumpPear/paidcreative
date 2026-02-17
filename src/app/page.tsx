@@ -103,7 +103,7 @@ function Testimonials() {
     },
     {
       quote:
-        "Paid Creative shipped us our highest spending & converting ads in Q4. Plus, they manage all our paid channels.",
+        "When you're investing five to six figures everyday in ad spend, you need people you trust working on your ad accounts. The Paid Creative team partners closely with our internal media buying team across multiple paid channels and their creative has earned a sizable share of our impressions and conversions.",
       name: "Clayton Spencer",
       role: "Founder",
       company: "Poncho",
