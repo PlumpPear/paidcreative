@@ -580,8 +580,8 @@ body {
   font-family: "Epilogue", sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 3rem;
+  color: var(--color-white);
+  margin-bottom: 1.5rem;
   line-height: 1.7;
   font-style: normal;
 }
