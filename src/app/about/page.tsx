@@ -85,7 +85,7 @@ function AboutLetter() {
           </p>
 
           <h2>Why we exist</h2>
-          <p className="about-pullquote">
+          <p>
             We didn&apos;t use agencies when building birddogs. Most
             agencies tell you how to grow your brand yet they&apos;ve never
             owned one themselves.
