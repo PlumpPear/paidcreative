@@ -91,7 +91,7 @@ function AboutLetter() {
             owned one themselves.
           </p>
           <p>
-            So we built an agency we would&apos;ve hired&mdash;one that
+            So we built an agency we would&apos;ve hired, one that
             operates like an owner, not a vendor.
           </p>
           <p>We&apos;re a hands-on, founder-lead service.</p>
