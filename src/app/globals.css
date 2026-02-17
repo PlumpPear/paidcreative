@@ -659,7 +659,7 @@ body {
 
 /* ── Case Study Page ── */
 .casestudy-hero {
-  min-height: 80vh;
+  min-height: 100vh;
   padding: 6rem 6%;
   background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
     url("/birddogs_case_study_hero.jpg") center / cover no-repeat;
