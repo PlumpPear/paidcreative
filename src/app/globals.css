@@ -661,7 +661,7 @@ body {
 .casestudy-hero {
   min-height: 100vh;
   padding: 6rem 6%;
-  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
     url("/birddogs_case_study_hero.jpg") center / cover no-repeat;
   color: var(--color-white);
   display: flex;
