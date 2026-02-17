@@ -95,7 +95,7 @@ function Testimonials() {
     },
     {
       quote:
-        "The guys behind Paid Creative run our entire marketing team. Creative quality has notably improved.",
+        "Paid Creative is one of the strongest performance creative partners I’ve worked with. They deliver a consistently high hit rate of ad concepts, invest the time to understand our brand and customer, and have become the team we rely on to help set creative direction internally and across our other agencies.",
       name: "Ovadia Labaton",
       role: "Co-Founder",
       company: "The Perfect Jean",
