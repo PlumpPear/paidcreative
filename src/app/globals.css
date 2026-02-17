@@ -280,6 +280,7 @@ body {
 
 .testimonials .section-header {
   text-align: center;
+  margin-bottom: 4rem;
 }
 
 .testimonials .section-label {
@@ -300,6 +301,8 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.08);
   position: relative;
   transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .testimonial-card::before {
@@ -327,6 +330,7 @@ body {
   margin-bottom: 2.5rem;
   position: relative;
   z-index: 2;
+  flex: 1;
 }
 
 .author {
