@@ -2,24 +2,6 @@
 import Link from "next/link";
 import Image from "next/image";
 
-function Header() {
-  return (
-    <nav className="site-nav about-nav">
-      <div className="nav-container">
-        <Link href="/">
-          <Image
-            src="/paid-creative-pigeon-logo.png"
-            alt="Paid Creative"
-            width={60}
-            height={60}
-            className="nav-logo-img"
-          />
-        </Link>
-      </div>
-    </nav>
-  );
-}
-
 function Footer() {
   return (
     <footer className="site-footer">
@@ -149,7 +131,6 @@ function AboutLetter() {
 export default function About() {
   return (
     <>
-      <Header />
       <main>
         <AboutLetter />
       </main>

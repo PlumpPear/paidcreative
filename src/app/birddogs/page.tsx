@@ -1,24 +1,5 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
-
-function Header() {
-  return (
-    <nav className="site-nav casestudy-nav">
-      <div className="nav-container">
-        <Link href="/">
-          <Image
-            src="/paid-creative-pigeon-logo.png"
-            alt="Paid Creative"
-            width={60}
-            height={60}
-            className="nav-logo-img"
-          />
-        </Link>
-      </div>
-    </nav>
-  );
-}
 
 function Hero() {
   return (
@@ -202,7 +183,6 @@ function Footer() {
 export default function Birddogs() {
   return (
     <>
-      <Header />
       <main>
         <Hero />
         <BrandStory />

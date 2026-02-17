@@ -3,24 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRef, useEffect } from "react";
 
-function Header() {
-  return (
-    <nav className="site-nav">
-      <div className="nav-container">
-        <Link href="/">
-          <Image
-            src="/paid-creative-pigeon-logo.png"
-            alt="Paid Creative"
-            width={60}
-            height={60}
-            className="nav-logo-img"
-          />
-        </Link>
-      </div>
-    </nav>
-  );
-}
-
 function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -278,7 +260,6 @@ function Footer() {
 export default function Home() {
   return (
     <>
-      <Header />
       <main>
         <Hero />
         <TrustSection />

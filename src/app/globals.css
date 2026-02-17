@@ -553,13 +553,8 @@ body {
 }
 
 /* ── About Page ── */
-.about-nav {
-  position: relative;
-  background: var(--color-blue);
-}
-
 .about-letter {
-  padding: 6rem 6% 8rem;
+  padding: 10rem 6% 8rem;
   background: var(--color-blue);
   color: var(--color-white);
   display: flex;
@@ -650,7 +645,7 @@ body {
 
 @media (max-width: 768px) {
   .about-letter {
-    padding: 4rem 5% 6rem;
+    padding: 8rem 5% 6rem;
   }
 
   .about-heading {
@@ -663,11 +658,6 @@ body {
 }
 
 /* ── Case Study Page ── */
-.casestudy-nav {
-  position: relative;
-  background: var(--color-black);
-}
-
 .casestudy-hero {
   min-height: 80vh;
   padding: 6rem 6%;
