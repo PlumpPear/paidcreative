@@ -158,7 +158,7 @@ function Stats() {
     {
       value: "5",
       label: "Brands Scaled to $50M+",
-      description: "We've helped multiple men's apparel brands scale past $50M/yr in revenue",
+      description: "We’ve helped multiple men’s apparel brands surpass $50M in annual revenue",
     },
   ];
 
