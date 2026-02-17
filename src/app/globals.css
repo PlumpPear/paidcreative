@@ -778,7 +778,10 @@ body {
 }
 
 .casestudy-contact {
-  padding: 8rem 6%;
+  aspect-ratio: 1264 / 848;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
     url("/birddogs_case_study_winter.png") center / cover no-repeat;
   color: var(--color-white);
