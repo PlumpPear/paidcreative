@@ -707,6 +707,42 @@ body {
   opacity: 0.6;
 }
 
+/* ── Context Strip ── */
+.casestudy-context {
+  background: var(--color-gray-900);
+  padding: 3rem 6%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.casestudy-context-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.casestudy-context-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.casestudy-context-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-blue);
+}
+
+.casestudy-context-value {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+}
+
 .casestudy-story {
   padding: 8rem 6%;
   background: var(--color-white);
@@ -746,6 +782,60 @@ body {
   color: var(--color-black);
 }
 
+/* ── Approach ── */
+.casestudy-approach {
+  padding: 8rem 6%;
+  background: var(--color-gray-50);
+  color: var(--color-black);
+  display: flex;
+  justify-content: center;
+}
+
+.casestudy-approach-content {
+  max-width: 960px;
+  width: 100%;
+}
+
+.casestudy-approach-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.casestudy-step {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+.casestudy-step-number {
+  font-family: "Anton", sans-serif;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--color-blue);
+  opacity: 0.3;
+  flex-shrink: 0;
+  width: 60px;
+}
+
+.casestudy-step-body {
+  flex: 1;
+}
+
+.casestudy-step-title {
+  font-family: "Epilogue", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-black);
+  margin-bottom: 0.75rem;
+}
+
+.casestudy-step-description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
 .casestudy-results {
   padding: 8rem 6%;
   background: var(--color-gray-900);
@@ -781,6 +871,84 @@ body {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
 }
 
+.casestudy-results-grid--four {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* ── Testimonial Pull Quote ── */
+.casestudy-testimonial {
+  padding: 6rem 6%;
+  background: var(--color-white);
+  display: flex;
+  justify-content: center;
+}
+
+.casestudy-testimonial-content {
+  max-width: 800px;
+  text-align: center;
+}
+
+.casestudy-pullquote {
+  font-family: "Epilogue", sans-serif;
+  font-size: 1.375rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #333;
+  font-style: italic;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.casestudy-testimonial-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.casestudy-testimonial-image {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-blue);
+}
+
+.casestudy-testimonial-info h4 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-black);
+  margin-bottom: 0.25rem;
+}
+
+.casestudy-testimonial-info p {
+  font-size: 0.8125rem;
+  color: #888;
+}
+
+.casestudy-testimonial-info .company {
+  color: var(--color-blue);
+  font-weight: 500;
+}
+
+/* ── Contact CTA (updated) ── */
+.casestudy-contact-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-blue);
+  margin-bottom: 1.5rem;
+}
+
+.casestudy-contact-sub {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 500px;
+  margin: 0 auto 2.5rem;
+}
+
 .casestudy-contact {
   aspect-ratio: 1264 / 848;
   display: flex;
@@ -812,9 +980,16 @@ body {
   .casestudy-hero,
   .casestudy-story,
   .casestudy-results,
-  .casestudy-contact {
+  .casestudy-contact,
+  .casestudy-approach,
+  .casestudy-context,
+  .casestudy-testimonial {
     padding-left: 5%;
     padding-right: 5%;
+  }
+
+  .casestudy-results-grid--four {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -828,8 +1003,27 @@ body {
     font-size: 2.5rem;
   }
 
-  .casestudy-results-grid {
+  .casestudy-results-grid,
+  .casestudy-results-grid--four {
     grid-template-columns: 1fr;
+  }
+
+  .casestudy-context-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .casestudy-step {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .casestudy-step-number {
+    font-size: 2rem;
+  }
+
+  .casestudy-pullquote {
+    font-size: 1.125rem;
   }
 }
 

@@ -20,39 +20,88 @@ function Hero() {
   );
 }
 
-function BrandStory() {
+function ContextStrip() {
+  const details = [
+    { label: "Industry", value: "Men\u2019s Activewear" },
+    { label: "Platforms", value: "Meta, TV, Google" },
+    { label: "Timeline", value: "2017 \u2013 2022" },
+    { label: "Our Role", value: "Founding Team, Creative & Media" },
+  ];
+
+  return (
+    <section className="casestudy-context">
+      <div className="casestudy-context-grid">
+        {details.map((d) => (
+          <div key={d.label} className="casestudy-context-item">
+            <span className="casestudy-context-label">{d.label}</span>
+            <span className="casestudy-context-value">{d.value}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Challenge() {
   return (
     <section className="casestudy-story">
       <div className="casestudy-story-content">
-        <h2 className="casestudy-story-heading">The Brand</h2>
+        <h2 className="casestudy-story-heading">The Challenge</h2>
         <div className="casestudy-story-body">
           <p>
-            birddogs didn&apos;t start with venture funding or a playbook. It was built bootstrapped and
-            obsessed with what actually worked.
+            birddogs had a clear thesis: <strong>pair the humor and voice of Chubbies with a
+            product engineered at the level of Lululemon.</strong> But they had no outside funding,
+            no agency, and no proven playbook for scaling a men&apos;s DTC brand past the first
+            million.
           </p>
           <p>
-            The founding question was simple: <strong>What if we paired the way Chubbies spoke to male
-            audiences directly with a product engineered at the level of Lululemon?</strong>
+            The founding team needed to build a creative engine that could produce, test, and
+            scale ad concepts fast enough to sustain profitable growth on Meta — while
+            eventually expanding into TV without losing the direct response DNA that built the
+            business.
           </p>
-          <p>
-            That question became birddogs — a men&apos;s activewear brand built on humor, performance
-            fabric, and relentless direct response marketing.
-          </p>
-          <p>
-            From the start, the creative was the growth engine. Early Facebook ads were self-produced,
-            irreverent, and built to stop the scroll. The team ran weekly creative sprints like a dev
-            team — testing, iterating, and scaling what worked while killing what didn&apos;t.
-          </p>
-          <p>
-            As the brand grew, so did the creative ambition. What started with scrappy performance ads
-            evolved into primetime TV commercials airing on ESPN, FOX, and Golf Channel — all while
-            keeping the same direct response DNA that built the business.
-          </p>
-          <p>
-            A five-person team took birddogs from zero to <strong>$100M+ in annual revenue</strong>,
-            proving that creative-led growth, when paired with rigorous performance marketing, can
-            scale a brand to nine figures without outside capital.
-          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Approach() {
+  const steps = [
+    {
+      number: "01",
+      title: "Creative Sprints, Not Campaigns",
+      description:
+        "We ran weekly production cycles like a dev team — scripting, shooting, and editing 20\u201350 ad variations per week. Every concept was built to test a single variable: hook, offer, format, or audience angle.",
+    },
+    {
+      number: "02",
+      title: "Test Fast, Scale Winners",
+      description:
+        "New concepts launched Monday. By Wednesday we had signal. By Friday, winners were scaling and losers were cut. This cycle ran every week for five years — producing over 10,000 creatives total.",
+    },
+    {
+      number: "03",
+      title: "From Performance Ads to Primetime TV",
+      description:
+        "As Meta scaled, we brought the same direct response discipline to television — airing commercials on ESPN, FOX, and Golf Channel. Every TV spot was built to convert, not just build awareness.",
+    },
+  ];
+
+  return (
+    <section className="casestudy-approach">
+      <div className="casestudy-approach-content">
+        <h2 className="casestudy-story-heading">The Approach</h2>
+        <div className="casestudy-approach-steps">
+          {steps.map((s) => (
+            <div key={s.number} className="casestudy-step">
+              <div className="casestudy-step-number">{s.number}</div>
+              <div className="casestudy-step-body">
+                <h3 className="casestudy-step-title">{s.title}</h3>
+                <p className="casestudy-step-description">{s.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -62,19 +111,24 @@ function BrandStory() {
 function Results() {
   const stats = [
     {
+      value: "$100M+",
+      label: "Annual Revenue",
+      description: "From zero to nine figures in five years, bootstrapped",
+    },
+    {
       value: "$58M+",
-      label: "Ad Spend Over 5 Years",
-      description: "Spent at average 1.5 NC ROAS",
+      label: "Ad Spend Managed",
+      description: "Deployed profitably at a 1.5x NC ROAS average",
     },
     {
       value: "10,000+",
       label: "Creatives Produced",
-      description: "Weekly sprints like a dev team",
+      description: "Weekly sprints across Meta, TV, and Google",
     },
     {
       value: "4+",
-      label: "Years In Meta Disruptors",
-      description: "Access to Meta's top support team",
+      label: "Years in Meta Disruptors",
+      description: "Top-tier access to Meta\u2019s support and beta features",
     },
   ];
 
@@ -83,7 +137,7 @@ function Results() {
       <div className="section-header">
         <h2 className="section-title">The Results</h2>
       </div>
-      <div className="casestudy-results-grid">
+      <div className="casestudy-results-grid casestudy-results-grid--four">
         {stats.map((s) => (
           <div key={s.label} className="casestudy-stat-item">
             <div className="stat-number">{s.value}</div>
@@ -96,18 +150,49 @@ function Results() {
   );
 }
 
+function Testimonial() {
+  return (
+    <section className="casestudy-testimonial">
+      <div className="casestudy-testimonial-content">
+        <blockquote className="casestudy-pullquote">
+          &ldquo;Sam and Madison were instrumental in building birddogs alongside me.
+          As initial members of the founding team, their execution, ownership, and
+          leadership drove the company&apos;s evolution from its earliest days through the
+          later stages of larger scale and sustained success.&rdquo;
+        </blockquote>
+        <div className="casestudy-testimonial-author">
+          <img
+            src="/paid_creative_testimonial_1.jpg"
+            alt="Peter Baldwin"
+            className="casestudy-testimonial-image"
+          />
+          <div className="casestudy-testimonial-info">
+            <h4>Peter Baldwin</h4>
+            <p>Founder &amp; CEO, <span className="company">birddogs</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Contact() {
   return (
     <section className="casestudy-contact">
       <div className="casestudy-contact-content">
-        <h2>Say Hello</h2>
+        <p className="casestudy-contact-label">Ready to scale?</p>
+        <h2>Let&apos;s build your creative engine</h2>
+        <p className="casestudy-contact-sub">
+          We take on a limited number of brands. Book a strategy session to see if
+          we&apos;re the right fit.
+        </p>
         <a
           href="https://calendar.app.google/rrGjcCYtfnHjAqvz7"
           target="_blank"
           rel="noopener noreferrer"
           className="cta-button"
         >
-          Schedule 30 Minutes
+          Schedule Strategy Session
         </a>
       </div>
     </section>
@@ -185,8 +270,11 @@ export default function Birddogs() {
     <>
       <main>
         <Hero />
-        <BrandStory />
+        <ContextStrip />
+        <Challenge />
+        <Approach />
         <Results />
+        <Testimonial />
         <Contact />
       </main>
       <Footer />
