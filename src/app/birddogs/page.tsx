@@ -50,14 +50,14 @@ function Challenge() {
         <div className="casestudy-story-body">
           <p>
             birddogs had a clear thesis: <strong>pair the humor and voice of Chubbies with a
-            product engineered at the level of Lululemon.</strong> But they had no outside funding,
+            product engineered at the level of Lululemon.</strong> But we had no outside funding,
             no agency, and no proven playbook for scaling a men&apos;s DTC brand past the first
             million.
           </p>
           <p>
             The founding team needed to build a creative engine that could produce, test, and
-            scale ad concepts fast enough to sustain profitable growth on Meta — while
-            eventually expanding into TV without losing the direct response DNA that built the
+            scale ad concepts fast enough to sustain profitable growth on Meta. We did that, and
+            expanded into TV, YouTube, and AppLovin without losing the direct response DNA that built the
             business.
           </p>
         </div>
@@ -80,7 +80,7 @@ function BrandShowcase() {
         <h2 className="casestudy-story-heading">The Brand</h2>
         <p className="casestudy-brand-body">
           We built a creative identity rooted in humor, irreverence, and scroll-stopping
-          visuals — branded assets engineered to entertain first and convert second.
+          visuals. Our assets were engineered to entertain first AND convert.
           Every piece of content was designed to feel native to the feed while driving
           measurable performance.
         </p>
