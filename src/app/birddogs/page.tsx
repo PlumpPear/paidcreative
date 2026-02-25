@@ -108,7 +108,7 @@ function Approach() {
       number: "02",
       title: "Test Fast, Scale Winners",
       description:
-        "New concepts launched weekly. This cycle ran every week for five years — producing over 10,000 creatives total.",
+        "New concepts launched weekly. This cycle ran every week for five years. We produced well over 10,000 creatives total.",
     },
     {
       number: "03",
