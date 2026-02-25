@@ -68,10 +68,10 @@ function Challenge() {
 
 function BrandShowcase() {
   const images = [
-    { src: "/birddogs_brand_1.jpg", alt: "birddogs branded creative 1" },
-    { src: "/birddogs_brand_2.jpg", alt: "birddogs branded creative 2" },
-    { src: "/birddogs_brand_3.jpg", alt: "birddogs branded creative 3" },
-    { src: "/birddogs_brand_4.jpg", alt: "birddogs branded creative 4" },
+    { src: "/birddogs_case_study_brand_1.jpg", alt: "birddogs branded creative 1" },
+    { src: "/birddogs_case_study_brand_2.jpg", alt: "birddogs branded creative 2" },
+    { src: "/birddogs_case_study_brand_3.jpg", alt: "birddogs branded creative 3" },
+    { src: "/birddogs_case_study_brand_4.jpg", alt: "birddogs branded creative 4" },
   ];
 
   return (
