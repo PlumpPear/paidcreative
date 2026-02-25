@@ -782,6 +782,57 @@ body {
   color: var(--color-black);
 }
 
+/* ── Brand Showcase ── */
+.casestudy-brand {
+  padding: 8rem 6%;
+  background: var(--color-gray-900);
+  color: var(--color-white);
+  display: flex;
+  justify-content: center;
+}
+
+.casestudy-brand-content {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.casestudy-brand .casestudy-story-heading {
+  color: var(--color-white);
+}
+
+.casestudy-brand-body {
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 700px;
+  margin-bottom: 3.5rem;
+}
+
+.casestudy-brand-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.casestudy-brand-image-wrapper {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.casestudy-brand-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.casestudy-brand-image-wrapper:hover .casestudy-brand-image {
+  transform: scale(1.03);
+}
+
 /* ── Approach ── */
 .casestudy-approach {
   padding: 8rem 6%;
@@ -983,12 +1034,17 @@ body {
   .casestudy-contact,
   .casestudy-approach,
   .casestudy-context,
-  .casestudy-testimonial {
+  .casestudy-testimonial,
+  .casestudy-brand {
     padding-left: 5%;
     padding-right: 5%;
   }
 
   .casestudy-results-grid--four {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .casestudy-brand-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }

@@ -66,6 +66,36 @@ function Challenge() {
   );
 }
 
+function BrandShowcase() {
+  const images = [
+    { src: "/birddogs_brand_1.jpg", alt: "birddogs branded creative 1" },
+    { src: "/birddogs_brand_2.jpg", alt: "birddogs branded creative 2" },
+    { src: "/birddogs_brand_3.jpg", alt: "birddogs branded creative 3" },
+    { src: "/birddogs_brand_4.jpg", alt: "birddogs branded creative 4" },
+  ];
+
+  return (
+    <section className="casestudy-brand">
+      <div className="casestudy-brand-content">
+        <h2 className="casestudy-story-heading">The Brand</h2>
+        <p className="casestudy-brand-body">
+          We built a creative identity rooted in humor, irreverence, and scroll-stopping
+          visuals — branded assets engineered to entertain first and convert second.
+          Every piece of content was designed to feel native to the feed while driving
+          measurable performance.
+        </p>
+        <div className="casestudy-brand-grid">
+          {images.map((img) => (
+            <div key={img.src} className="casestudy-brand-image-wrapper">
+              <img src={img.src} alt={img.alt} className="casestudy-brand-image" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Approach() {
   const steps = [
     {
@@ -272,6 +302,7 @@ export default function Birddogs() {
         <Hero />
         <ContextStrip />
         <Challenge />
+        <BrandShowcase />
         <Approach />
         <Results />
         <Testimonial />
