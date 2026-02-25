@@ -102,19 +102,19 @@ function Approach() {
       number: "01",
       title: "Creative Sprints, Not Campaigns",
       description:
-        "We ran weekly production cycles like a dev team — scripting, shooting, and editing 20\u201350 ad variations per week. Every concept was built to test a single variable: hook, offer, format, or audience angle.",
+        "We ran weekly production cycles like a dev team: scripting, shooting, and editing 20\u201350 ad variations per week. Every concept was built to test a single variable: hook, offer, format, or audience angle.",
     },
     {
       number: "02",
       title: "Test Fast, Scale Winners",
       description:
-        "New concepts launched Monday. By Wednesday we had signal. By Friday, winners were scaling and losers were cut. This cycle ran every week for five years — producing over 10,000 creatives total.",
+        "New concepts launched weekly. This cycle ran every week for five years — producing over 10,000 creatives total.",
     },
     {
       number: "03",
       title: "From Performance Ads to Primetime TV",
       description:
-        "As Meta scaled, we brought the same direct response discipline to television — airing commercials on ESPN, FOX, and Golf Channel. Every TV spot was built to convert, not just build awareness.",
+        "As Meta scaled, we brought the same direct response discipline to television. We aired primetime commercials on ESPN, CNN, and Golf Channel. Every TV spot was built to convert, not just build awareness.",
     },
   ];
 
@@ -148,7 +148,7 @@ function Results() {
     {
       value: "$58M+",
       label: "Ad Spend Managed",
-      description: "Deployed profitably at a 1.5x NC ROAS average",
+      description: "Deployed profitably at a 1.4x NC ROAS average",
     },
     {
       value: "10,000+",
