@@ -1081,6 +1081,10 @@ body {
   .casestudy-pullquote {
     font-size: 1.125rem;
   }
+
+  .casestudy-contact-sub {
+    display: none;
+  }
 }
 
 /* ── Animations ── */
