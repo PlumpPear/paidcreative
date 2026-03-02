@@ -34,8 +34,7 @@ function Hero() {
           <span className="hero-accent">your brand</span>
         </h1>
         <p className="hero-description">
-          Improve Meta ROAS in 2 weeks through better creative and a
-          merchandising focused account structure.
+          Improve Meta ROAS in 2 weeks with better creative and media buying.
         </p>
         <Link href="/birddogs" className="cta-button">
           $100M Case Study
