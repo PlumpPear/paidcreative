@@ -24,7 +24,7 @@ function ContextStrip() {
   const details = [
     { label: "Industry", value: "Men\u2019s Activewear" },
     { label: "Main Platforms", value: "Meta, TV, YouTube" },
-    { label: "Timeline", value: "2016 \u2013 2024" },
+    { label: "Timeline", value: "2019 \u2013 2024" },
     { label: "Our Role", value: "Founding Team, Creative & Media" },
   ];
 
