@@ -7,7 +7,7 @@ function Hero() {
       <div className="casestudy-hero-content fade-in-up">
         <p className="casestudy-label">Case Study</p>
         <h1>
-          $0 to $100M<br />
+          $0 to $50M<br />
           in 5 years
         </h1>
         <img
@@ -24,7 +24,7 @@ function ContextStrip() {
   const details = [
     { label: "Industry", value: "Men\u2019s Activewear" },
     { label: "Main Platforms", value: "Meta, TV, YouTube" },
-    { label: "Timeline", value: "2019 \u2013 2024" },
+    { label: "Timeline", value: "2015 \u2013 2019" },
     { label: "Our Role", value: "Founding Team, Creative & Media" },
   ];
 
