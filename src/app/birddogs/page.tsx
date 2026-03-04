@@ -49,10 +49,15 @@ function Challenge() {
         <h2 className="casestudy-story-heading">The Challenge</h2>
         <div className="casestudy-story-body">
           <p>
-            birddogs had a clear thesis: <strong>pair the humor and voice of Chubbies with a
-            product engineered at the level of Lululemon.</strong> But we had no outside funding,
-            no agency, and no proven playbook for scaling a men&apos;s DTC brand past the first
-            million.
+            birddogs had a clear thesis. Activewear had split into two dead
+            ends: stuffy brands that took themselves too seriously, and brands
+            that were funny but didn&apos;t prioritize a quality product. We set out to
+            be both the brand men actually wanted to hear from, and the best
+            shorts they&apos;d ever worn.
+          </p>
+          <p>
+            But we had no outside funding, no agency, and no proven playbook for
+            scaling a men&apos;s DTC brand past the first million.
           </p>
           <p>
             The founding team needed to build a creative engine that could produce, test, and
