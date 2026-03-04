@@ -37,7 +37,7 @@ function Hero() {
           Improve Meta ROAS in 2 weeks with better creative and media buying.
         </p>
         <Link href="/birddogs" className="cta-button">
-          $100M Case Study
+          $50M Case Study
         </Link>
       </div>
     </section>
