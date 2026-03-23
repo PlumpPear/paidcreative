@@ -190,10 +190,11 @@ function Testimonial() {
     <section className="casestudy-testimonial">
       <div className="casestudy-testimonial-content">
         <blockquote className="casestudy-pullquote">
-          &ldquo;Sam and Madison were instrumental in building birddogs alongside me.
-          As initial members of the founding team, their execution, ownership, and
-          leadership drove the company&apos;s evolution from its earliest days through the
-          later stages of larger scale and sustained success.&rdquo;
+          &ldquo;Madison, Sam and myself built birddogs from the ground up. Sam&apos;s
+          creative instinct, direction and production combined with Madison&apos;s
+          growth marketing leadership were the magic behind building a massive
+          brand totally bootstrapped with zero resources. You won&apos;t find a
+          better team to advise and scale a brand online than these two.&rdquo;
         </blockquote>
         <div className="casestudy-testimonial-author">
           <img

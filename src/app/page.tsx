@@ -86,7 +86,7 @@ function Testimonials() {
   const testimonials = [
     {
       quote:
-        "Sam and Madison were instrumental in building birddogs alongside me. As initial members of the founding team, their execution, ownership, and leadership drove the company’s evolution from its earliest days through the later stages of larger scale and sustained success.",
+        "Madison, Sam and myself built birddogs from the ground up. Sam’s creative instinct, direction and production combined with Madison’s growth marketing leadership were the magic behind building a massive brand totally bootstrapped with zero resources. You won’t find a better team to advise and scale a brand online than these two.",
       name: "Peter Baldwin",
       role: "Founder & CEO",
       company: "birddogs",
