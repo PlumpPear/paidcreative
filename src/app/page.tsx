@@ -29,7 +29,7 @@ function Hero() {
       <div className="hero-overlay" />
       <div className="hero-content fade-in-up">
         <h1>
-          Men&apos;s Apparel<br />
+          Men&apos;s Lifestyle<br />
           strategy that <span className="hero-accent">scales</span><br />
           <span className="hero-accent">your brand</span>
         </h1>
@@ -58,7 +58,7 @@ function TrustSection() {
       <div className="trust-content">
         <div className="section-header">
           <h2 className="section-title">
-            We help <strong>Men&apos;s Apparel leaders</strong> build<br />
+            We help <strong>Men&apos;s Lifestyle leaders</strong> build<br />
             highly diversified creative portfolios
           </h2>
           <p className="section-subtitle">
