@@ -50,6 +50,7 @@ function TrustSection() {
     { name: "Poncho", logo: "/poncho_logo.png", height: 26 },
     { name: "The Perfect Jean", logo: "/tpj_logo copy.png", height: 42 },
     { name: "Stately", logo: "/stately_logo.png", height: 24 },
+    { name: "BlueChew", logo: "/bluechew_logo.png", height: 30 },
     { name: "Diamond Cross Ranch", logo: "/DCR_Logo.png", height: 45 },
   ];
 
