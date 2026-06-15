@@ -130,7 +130,7 @@ body {
 
 .nav-links {
   display: flex;
-  gap: 3rem;
+  gap: var(--gap);
   list-style: none;
 }
 
@@ -139,7 +139,7 @@ body {
   color: var(--color-black);
   font-size: 0.8rem;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: color var(--transition);
   position: relative;
 }
 
@@ -151,7 +151,7 @@ body {
   width: 0;
   height: 2px;
   background: var(--color-blue);
-  transition: width 0.3s ease;
+  transition: width var(--transition);
 }
 
 .nav-link:hover {
@@ -236,11 +236,11 @@ body {
   text-decoration: none;
   font-weight: 600;
   font-size: var(--text-sm);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--transition-smooth);
   position: relative;
   overflow: hidden;
   z-index: 1;
-  box-shadow: 0 10px 30px rgba(48, 149, 238, 0.4);
+  box-shadow: var(--shadow-cta);
 }
 
 .cta-button::before {
@@ -251,7 +251,7 @@ body {
   width: 100%;
   height: 100%;
   background: var(--color-white);
-  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: left var(--transition-smooth);
   z-index: -1;
 }
 
@@ -261,12 +261,12 @@ body {
 
 .cta-button:hover {
   color: var(--color-black);
-  box-shadow: 0 20px 40px rgba(48, 149, 238, 0.5);
+  box-shadow: var(--shadow-cta-hover);
 }
 
 /* ── Trust / Social Proof Section ── */
 .trust-section {
-  padding: 8rem var(--gutter);
+  padding: var(--section-y) var(--gutter);
   background: var(--color-gray-900);
   color: var(--color-white);
 }
@@ -327,7 +327,7 @@ body {
   object-fit: contain;
   filter: grayscale(100%) brightness(0) invert(1);
   opacity: 0.7;
-  transition: opacity 0.3s ease;
+  transition: opacity var(--transition);
 }
 
 .client-logo:hover .client-logo-img {
@@ -340,7 +340,7 @@ body {
 
 /* ── Testimonials ── */
 .testimonials {
-  padding: 8rem var(--gutter);
+  padding: var(--section-y) var(--gutter);
   background: var(--color-white);
   color: var(--color-black);
 }
@@ -357,7 +357,7 @@ body {
 .testimonials-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 3rem;
+  gap: var(--gap);
   max-width: var(--content-wide);
   margin: 0 auto;
 }
@@ -387,7 +387,7 @@ body {
 .testimonial-card:hover {
   transform: translateY(-8px);
   border-color: var(--color-blue);
-  box-shadow: 0 24px 64px rgba(48, 149, 238, 0.15);
+  box-shadow: var(--shadow-card);
 }
 
 .quote {
@@ -411,7 +411,7 @@ body {
 .author-image {
   width: 60px;
   height: 60px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   object-fit: cover;
   background: #ddd;
   border: 2px solid var(--color-blue);
@@ -438,7 +438,7 @@ body {
 
 /* ── Stats ── */
 .stats {
-  padding: 8rem var(--gutter);
+  padding: var(--section-y) var(--gutter);
   background: var(--color-gray-900);
   color: var(--color-white);
 }
@@ -454,7 +454,7 @@ body {
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 3rem;
+  gap: var(--gap);
   max-width: var(--content-wide);
   margin: 0 auto;
 }
@@ -464,12 +464,12 @@ body {
   padding: 3rem 2rem;
   background: var(--color-raised);
   border-left: 4px solid var(--color-blue);
-  transition: all 0.3s ease;
+  transition: all var(--transition);
 }
 
 .stat-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-lift);
 }
 
 .stat-number {
@@ -496,7 +496,7 @@ body {
 
 /* ── Final CTA ── */
 .final-cta {
-  padding: 8rem var(--gutter);
+  padding: var(--section-y) var(--gutter);
   background: var(--color-white);
   color: var(--color-black);
   text-align: center;
@@ -523,7 +523,7 @@ body {
 
 /* ── Footer ── */
 .site-footer {
-  padding: 6rem var(--gutter) 3rem;
+  padding: var(--section-y-sm) var(--gutter) var(--section-y-xs);
   background: var(--color-black);
   color: var(--color-white);
   position: relative;
@@ -586,7 +586,7 @@ body {
   color: var(--color-text-subtle);
   text-decoration: none;
   font-size: var(--text-sm);
-  transition: color 0.3s ease;
+  transition: color var(--transition);
   position: relative;
 }
 
@@ -598,7 +598,7 @@ body {
   width: 0;
   height: 1px;
   background: var(--color-blue);
-  transition: width 0.3s ease;
+  transition: width var(--transition);
 }
 
 .footer-link:hover {
@@ -723,7 +723,7 @@ body {
 /* ── Case Study Page ── */
 .casestudy-hero {
   min-height: 100vh;
-  padding: 6rem var(--gutter);
+  padding: var(--section-y-sm) var(--gutter);
   background: linear-gradient(var(--overlay), var(--overlay)),
     url("/birddogs_case_study_hero.jpg") center / cover no-repeat;
   color: var(--color-white);
@@ -765,14 +765,14 @@ body {
 /* ── Context Strip ── */
 .casestudy-context {
   background: var(--color-gray-900);
-  padding: 3rem var(--gutter);
+  padding: var(--section-y-xs) var(--gutter);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .casestudy-context-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: var(--gap-sm);
   max-width: var(--content-mid);
   margin: 0 auto;
 }
@@ -799,7 +799,7 @@ body {
 }
 
 .casestudy-story {
-  padding: 8rem var(--gutter);
+  padding: var(--section-y) var(--gutter);
   background: var(--color-white);
   color: var(--color-black);
   display: flex;
@@ -835,7 +835,7 @@ body {
 
 /* ── Brand Showcase ── */
 .casestudy-brand {
-  padding: 8rem var(--gutter);
+  padding: var(--section-y) var(--gutter);
   background: var(--color-gray-900);
   color: var(--color-white);
   display: flex;
@@ -869,7 +869,7 @@ body {
   aspect-ratio: 1 / 1;
   overflow: hidden;
   background: var(--color-raised);
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
 }
 
 .casestudy-brand-image {
@@ -886,7 +886,7 @@ body {
 
 /* ── Approach ── */
 .casestudy-approach {
-  padding: 8rem var(--gutter);
+  padding: var(--section-y) var(--gutter);
   background: var(--color-gray-50);
   color: var(--color-black);
   display: flex;
@@ -901,7 +901,7 @@ body {
 .casestudy-approach-steps {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: var(--gap);
 }
 
 .casestudy-step {
@@ -939,7 +939,7 @@ body {
 }
 
 .casestudy-results {
-  padding: 8rem var(--gutter);
+  padding: var(--section-y) var(--gutter);
   background: var(--color-gray-900);
   color: var(--color-white);
 }
@@ -955,7 +955,7 @@ body {
 .casestudy-results-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
+  gap: var(--gap);
   max-width: var(--content-mid);
   margin: 0 auto;
 }
@@ -965,12 +965,12 @@ body {
   padding: 3rem 2rem;
   background: var(--color-raised);
   border-left: 4px solid var(--color-blue);
-  transition: all 0.3s ease;
+  transition: all var(--transition);
 }
 
 .casestudy-stat-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-lift);
 }
 
 .casestudy-results-grid--four {
@@ -979,7 +979,7 @@ body {
 
 /* ── Testimonial Pull Quote ── */
 .casestudy-testimonial {
-  padding: 6rem var(--gutter);
+  padding: var(--section-y-sm) var(--gutter);
   background: var(--color-white);
   display: flex;
   justify-content: center;
@@ -1011,7 +1011,7 @@ body {
 .casestudy-testimonial-image {
   width: 56px;
   height: 56px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   object-fit: cover;
   border: 2px solid var(--color-blue);
 }
@@ -1164,7 +1164,7 @@ body {
 @media (max-width: 1024px) {
   .footer-content {
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: var(--gap);
   }
 }
 
