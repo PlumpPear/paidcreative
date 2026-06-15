@@ -807,7 +807,7 @@ body {
 }
 
 .casestudy-story-content {
-  max-width: var(--content-narrow);
+  max-width: var(--content-mid);
   width: 100%;
 }
 
@@ -894,7 +894,7 @@ body {
 }
 
 .casestudy-approach-content {
-  max-width: var(--content-narrow);
+  max-width: var(--content-mid);
   width: 100%;
 }
 
