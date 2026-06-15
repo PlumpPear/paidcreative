@@ -8,6 +8,67 @@
   --color-gray-900: #0a0a0a;
 }
 
+/* ── Design Tokens ──
+   Single source of truth for the design system. Reference these everywhere
+   (var(--token)) instead of hardcoding values, so new sections stay consistent. */
+:root {
+  /* Text on light backgrounds */
+  --color-text: #333;
+  --color-text-muted: #666;
+  --color-text-subtle: #999;
+
+  /* Text on dark backgrounds */
+  --color-on-dark: rgba(255, 255, 255, 0.9);
+  --color-on-dark-muted: rgba(255, 255, 255, 0.7);
+  --color-on-dark-subtle: rgba(255, 255, 255, 0.5);
+
+  /* Surfaces, borders, overlay */
+  --color-raised: rgba(255, 255, 255, 0.05);
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-dark: #222;
+  --overlay: rgba(0, 0, 0, 0.45);
+
+  /* Typography */
+  --font-display: "Anton", sans-serif;
+  --font-body: "Epilogue", -apple-system, BlinkMacSystemFont, sans-serif;
+  --text-display-xl: calc(4vw + 1rem);
+  --text-display-lg: calc(3.6vw + 1rem);
+  --text-display-md: calc(2.16vw + 1rem);
+  --text-display-stat: 3.5rem;
+  --text-lg: 1.375rem;
+  --text-md: 1.125rem;
+  --text-base: 1rem;
+  --text-sm: 0.875rem;
+  --text-xs: 0.75rem;
+
+  /* Effects (preserved exactly — special-effect tokens) */
+  --shadow-cta: 0 10px 30px rgba(48, 149, 238, 0.4);
+  --shadow-cta-hover: 0 20px 40px rgba(48, 149, 238, 0.5);
+  --shadow-card: 0 24px 64px rgba(48, 149, 238, 0.15);
+  --shadow-lift: 0 12px 32px rgba(0, 0, 0, 0.2);
+  --transition: 0.3s ease;
+  --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --radius-sm: 4px;
+  --radius-full: 50%;
+
+  /* Spacing & layout */
+  --gutter: 6%;
+  --section-y: 8rem;
+  --section-y-sm: 6rem;
+  --section-y-xs: 3rem;
+  --gap: 3rem;
+  --gap-sm: 2rem;
+  --content-narrow: 900px;
+  --content-mid: 1200px;
+  --content-wide: 1600px;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --gutter: 5%;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
