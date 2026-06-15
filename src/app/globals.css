@@ -95,12 +95,12 @@ body {
   right: 0;
   z-index: 1000;
   background: transparent;
-  padding: 1.5rem 6%;
+  padding: 1.5rem var(--gutter);
   pointer-events: none;
 }
 
 .nav-container {
-  max-width: 1600px;
+  max-width: var(--content-wide);
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -151,7 +151,7 @@ body {
 /* ── Hero ── */
 .hero {
   min-height: 100vh;
-  padding: 0 6%;
+  padding: 0 var(--gutter);
   background: var(--color-gray-900);
   color: var(--color-white);
   position: relative;
@@ -182,7 +182,7 @@ body {
 }
 
 .hero-content {
-  max-width: 1600px;
+  max-width: var(--content-wide);
   margin: 0 auto;
   position: relative;
   z-index: 2;
@@ -256,13 +256,13 @@ body {
 
 /* ── Trust / Social Proof Section ── */
 .trust-section {
-  padding: 8rem 6%;
+  padding: 8rem var(--gutter);
   background: var(--color-gray-900);
   color: var(--color-white);
 }
 
 .trust-content {
-  max-width: 1600px;
+  max-width: var(--content-wide);
   margin: 0 auto;
 }
 
@@ -334,7 +334,7 @@ body {
 
 /* ── Testimonials ── */
 .testimonials {
-  padding: 8rem 6%;
+  padding: 8rem var(--gutter);
   background: var(--color-white);
   color: var(--color-black);
 }
@@ -352,7 +352,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 3rem;
-  max-width: 1600px;
+  max-width: var(--content-wide);
   margin: 0 auto;
 }
 
@@ -432,7 +432,7 @@ body {
 
 /* ── Stats ── */
 .stats {
-  padding: 8rem 6%;
+  padding: 8rem var(--gutter);
   background: var(--color-gray-900);
   color: var(--color-white);
 }
@@ -449,7 +449,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 3rem;
-  max-width: 1600px;
+  max-width: var(--content-wide);
   margin: 0 auto;
 }
 
@@ -490,14 +490,14 @@ body {
 
 /* ── Final CTA ── */
 .final-cta {
-  padding: 8rem 6%;
+  padding: 8rem var(--gutter);
   background: var(--color-white);
   color: var(--color-black);
   text-align: center;
 }
 
 .final-cta-content {
-  max-width: 900px;
+  max-width: var(--content-narrow);
   margin: 0 auto;
 }
 
@@ -521,7 +521,7 @@ body {
 
 /* ── Footer ── */
 .site-footer {
-  padding: 6rem 6% 3rem;
+  padding: 6rem var(--gutter) 3rem;
   background: var(--color-black);
   color: var(--color-white);
   position: relative;
@@ -538,7 +538,7 @@ body {
 }
 
 .footer-content {
-  max-width: 1600px;
+  max-width: var(--content-wide);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
@@ -608,7 +608,7 @@ body {
 }
 
 .footer-bottom {
-  max-width: 1600px;
+  max-width: var(--content-wide);
   margin: 0 auto;
   padding-top: 3rem;
   border-top: 1px solid #222;
@@ -619,7 +619,7 @@ body {
 
 /* ── About Page ── */
 .about-letter {
-  padding: 10rem 6% 8rem;
+  padding: 10rem var(--gutter) 8rem;
   background: var(--color-blue);
   color: var(--color-white);
   display: flex;
@@ -710,7 +710,7 @@ body {
 
 @media (max-width: 768px) {
   .about-letter {
-    padding: 8rem 5% 6rem;
+    padding: 8rem var(--gutter) 6rem;
   }
 
   .about-heading {
@@ -725,7 +725,7 @@ body {
 /* ── Case Study Page ── */
 .casestudy-hero {
   min-height: 100vh;
-  padding: 6rem 6%;
+  padding: 6rem var(--gutter);
   background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
     url("/birddogs_case_study_hero.jpg") center / cover no-repeat;
   color: var(--color-white);
@@ -736,7 +736,7 @@ body {
 }
 
 .casestudy-hero-content {
-  max-width: 900px;
+  max-width: var(--content-narrow);
   margin: 0 auto;
 }
 
@@ -771,7 +771,7 @@ body {
 /* ── Context Strip ── */
 .casestudy-context {
   background: var(--color-gray-900);
-  padding: 3rem 6%;
+  padding: 3rem var(--gutter);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -779,7 +779,7 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
-  max-width: 1200px;
+  max-width: var(--content-mid);
   margin: 0 auto;
 }
 
@@ -805,7 +805,7 @@ body {
 }
 
 .casestudy-story {
-  padding: 8rem 6%;
+  padding: 8rem var(--gutter);
   background: var(--color-white);
   color: var(--color-black);
   display: flex;
@@ -813,7 +813,7 @@ body {
 }
 
 .casestudy-story-content {
-  max-width: 960px;
+  max-width: var(--content-narrow);
   width: 100%;
 }
 
@@ -845,7 +845,7 @@ body {
 
 /* ── Brand Showcase ── */
 .casestudy-brand {
-  padding: 8rem 6%;
+  padding: 8rem var(--gutter);
   background: var(--color-gray-900);
   color: var(--color-white);
   display: flex;
@@ -853,7 +853,7 @@ body {
 }
 
 .casestudy-brand-content {
-  max-width: 1200px;
+  max-width: var(--content-mid);
   width: 100%;
 }
 
@@ -896,7 +896,7 @@ body {
 
 /* ── Approach ── */
 .casestudy-approach {
-  padding: 8rem 6%;
+  padding: 8rem var(--gutter);
   background: var(--color-gray-50);
   color: var(--color-black);
   display: flex;
@@ -904,7 +904,7 @@ body {
 }
 
 .casestudy-approach-content {
-  max-width: 960px;
+  max-width: var(--content-narrow);
   width: 100%;
 }
 
@@ -949,7 +949,7 @@ body {
 }
 
 .casestudy-results {
-  padding: 8rem 6%;
+  padding: 8rem var(--gutter);
   background: var(--color-gray-900);
   color: var(--color-white);
 }
@@ -966,7 +966,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
-  max-width: 1200px;
+  max-width: var(--content-mid);
   margin: 0 auto;
 }
 
@@ -989,14 +989,14 @@ body {
 
 /* ── Testimonial Pull Quote ── */
 .casestudy-testimonial {
-  padding: 6rem 6%;
+  padding: 6rem var(--gutter);
   background: var(--color-white);
   display: flex;
   justify-content: center;
 }
 
 .casestudy-testimonial-content {
-  max-width: 800px;
+  max-width: var(--content-narrow);
   text-align: center;
 }
 
@@ -1073,7 +1073,7 @@ body {
 }
 
 .casestudy-contact-content {
-  max-width: 900px;
+  max-width: var(--content-narrow);
   margin: 0 auto;
 }
 
@@ -1089,18 +1089,6 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .casestudy-hero,
-  .casestudy-story,
-  .casestudy-results,
-  .casestudy-contact,
-  .casestudy-approach,
-  .casestudy-context,
-  .casestudy-testimonial,
-  .casestudy-brand {
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-
   .casestudy-results-grid--four {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1113,7 +1101,7 @@ body {
 @media (max-width: 768px) {
   .casestudy-hero {
     min-height: 60vh;
-    padding: 5rem 5%;
+    padding: 5rem var(--gutter);
   }
 
   .casestudy-hero h1 {
@@ -1188,23 +1176,6 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .site-nav {
-    padding: 1.5rem 5%;
-  }
-
-  .hero {
-    padding: 0 5%;
-  }
-
-  .trust-section,
-  .testimonials,
-  .stats,
-  .final-cta,
-  .site-footer {
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-
   .footer-content {
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
@@ -1214,10 +1185,6 @@ body {
 @media (max-width: 768px) {
   .nav-links {
     gap: 1.5rem;
-  }
-
-  .hero {
-    padding: 0 5%;
   }
 
   .testimonials-grid {
