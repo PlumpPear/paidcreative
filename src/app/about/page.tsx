@@ -106,7 +106,7 @@ function AboutLetter() {
           <h2>Who we work with</h2>
           <p>
             We take on a limited number of partners so we can stay deeply
-            involved. If you&apos;re a DTC brand spending more than $1M+
+            involved. If you&apos;re a DTC brand spending more than $3M+
             annually on paid advertising and looking to improve your creative
             team, send us a note.
           </p>
