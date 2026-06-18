@@ -203,7 +203,7 @@ function Footer() {
         <div className="footer-brand">
           <h3>Paid Creative</h3>
           <p>
-            Men&apos;s apparel creative agency specializing in performance
+            Men&apos;s lifestyle creative agency specializing in performance
             marketing and brand growth. We help 8 and 9-figure brands build
             diversified creative portfolios.
           </p>
