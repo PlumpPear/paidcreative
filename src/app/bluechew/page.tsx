@@ -22,10 +22,10 @@ function Hero() {
 
 function ContextStrip() {
   const details = [
-    { label: "Industry", value: "Men’s Activewear" },
-    { label: "Main Platforms", value: "Meta, TV, YouTube" },
-    { label: "Timeline", value: "2015 – 2019" },
-    { label: "Our Role", value: "Founding Team, Creative & Media" },
+    { label: "Industry", value: "Men’s Health" },
+    { label: "Main Platform", value: "Meta" },
+    { label: "Timeline", value: "2026" },
+    { label: "Our Role", value: "Performance & Branded Creative Production" },
   ];
 
   return (
