@@ -753,6 +753,11 @@ body {
   margin-bottom: 3rem;
 }
 
+/* Smaller hero title variant (used on /bluechew for long headlines) */
+.casestudy-hero--sm h1 {
+  font-size: calc(2vw + 0.5rem);
+}
+
 .casestudy-brand-logo {
   height: 40px;
   width: auto;
@@ -1092,6 +1097,10 @@ body {
 
   .casestudy-hero h1 {
     font-size: 2.5rem;
+  }
+
+  .casestudy-hero--sm h1 {
+    font-size: 1.25rem;
   }
 
   .casestudy-results-grid,
