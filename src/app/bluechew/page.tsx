@@ -78,7 +78,7 @@ function BrandShowcase() {
     src?: string;
     alt: string;
   }[] = [
-    { type: "video", youtubeId: "bxy3pNNip8g", alt: "BlueChew branded video 1" },
+    { type: "video", youtubeId: "sqsBkqhVyHQ", alt: "BlueChew branded video 1" },
     { type: "image", src: "/birddogs_case_study_brand_2.jpg", alt: "birddogs branded creative 2" },
     { type: "image", src: "/birddogs_case_study_brand_3.jpg", alt: "birddogs branded creative 3" },
     { type: "image", src: "/birddogs_case_study_brand_4.jpg", alt: "birddogs branded creative 4" },
