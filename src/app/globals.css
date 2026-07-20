@@ -753,6 +753,12 @@ body {
   margin-bottom: 3rem;
 }
 
+/* /bluechew hero background image */
+.casestudy-hero--bluechew {
+  background: linear-gradient(var(--overlay), var(--overlay)),
+    url("/bluechew_case_study_hero.png") center / cover no-repeat;
+}
+
 /* Smaller hero title variant (used on /bluechew for long headlines) */
 .casestudy-hero--sm h1 {
   font-size: calc(2vw + 0.5rem);
