@@ -11,7 +11,7 @@ function Hero() {
           performance for America&rsquo;s #1 men&rsquo;s health brand
         </h1>
         <img
-          src="/bluechew_logo.png"
+          src="/bluechew_logo1.svg"
           alt="BlueChew"
           className="casestudy-brand-logo"
         />
