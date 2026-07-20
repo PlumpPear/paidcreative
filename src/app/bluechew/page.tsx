@@ -7,8 +7,8 @@ function Hero() {
       <div className="casestudy-hero-content fade-in-up">
         <p className="casestudy-label">Case Study</p>
         <h1>
-          $0 to $50M<br />
-          in 5 years
+          How comedy drove 100M+ impressions and account-leading
+          performance for America&rsquo;s #1 men&rsquo;s health brand
         </h1>
         <img
           src="/bluechew_logo.png"
