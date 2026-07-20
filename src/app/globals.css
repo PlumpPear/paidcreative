@@ -891,6 +891,18 @@ body {
   transition: transform 0.4s ease;
 }
 
+/* Vertical (9:16) YouTube Short embed in the brand grid */
+.casestudy-brand-image-wrapper--video {
+  aspect-ratio: 9 / 16;
+}
+
+.casestudy-brand-video {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
 .casestudy-brand-image-wrapper:hover .casestudy-brand-image {
   transform: scale(1.03);
 }

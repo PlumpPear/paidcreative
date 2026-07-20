@@ -72,11 +72,16 @@ function Challenge() {
 }
 
 function BrandShowcase() {
-  const images = [
-    { src: "/birddogs_case_study_brand_1.jpg", alt: "birddogs branded creative 1" },
-    { src: "/birddogs_case_study_brand_2.jpg", alt: "birddogs branded creative 2" },
-    { src: "/birddogs_case_study_brand_3.jpg", alt: "birddogs branded creative 3" },
-    { src: "/birddogs_case_study_brand_4.jpg", alt: "birddogs branded creative 4" },
+  const items: {
+    type: "video" | "image";
+    youtubeId?: string;
+    src?: string;
+    alt: string;
+  }[] = [
+    { type: "video", youtubeId: "bxy3pNNip8g", alt: "BlueChew branded video 1" },
+    { type: "image", src: "/birddogs_case_study_brand_2.jpg", alt: "birddogs branded creative 2" },
+    { type: "image", src: "/birddogs_case_study_brand_3.jpg", alt: "birddogs branded creative 3" },
+    { type: "image", src: "/birddogs_case_study_brand_4.jpg", alt: "birddogs branded creative 4" },
   ];
 
   return (
@@ -90,9 +95,26 @@ function BrandShowcase() {
           measurable performance.
         </p>
         <div className="casestudy-brand-grid">
-          {images.map((img) => (
-            <div key={img.src} className="casestudy-brand-image-wrapper">
-              <img src={img.src} alt={img.alt} className="casestudy-brand-image" />
+          {items.map((item, i) => (
+            <div
+              key={item.youtubeId ?? item.src ?? i}
+              className={
+                item.type === "video"
+                  ? "casestudy-brand-image-wrapper casestudy-brand-image-wrapper--video"
+                  : "casestudy-brand-image-wrapper"
+              }
+            >
+              {item.type === "video" ? (
+                <iframe
+                  className="casestudy-brand-video"
+                  src={`https://www.youtube.com/embed/${item.youtubeId}`}
+                  title={item.alt}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              ) : (
+                <img src={item.src} alt={item.alt} className="casestudy-brand-image" />
+              )}
             </div>
           ))}
         </div>
