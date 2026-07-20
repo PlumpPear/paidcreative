@@ -79,9 +79,13 @@ function BrandShowcase() {
     alt: string;
   }[] = [
     { type: "video", youtubeId: "sqsBkqhVyHQ", alt: "BlueChew branded video 1" },
-    { type: "image", src: "/birddogs_case_study_brand_2.jpg", alt: "birddogs branded creative 2" },
-    { type: "image", src: "/birddogs_case_study_brand_3.jpg", alt: "birddogs branded creative 3" },
-    { type: "image", src: "/birddogs_case_study_brand_4.jpg", alt: "birddogs branded creative 4" },
+    { type: "video", youtubeId: "GoVR5i8NIcs", alt: "BlueChew branded video 2" },
+    { type: "video", youtubeId: "ynfPhxvGFLo", alt: "BlueChew branded video 3" },
+    { type: "video", youtubeId: "OHHBTPmsGWY", alt: "BlueChew branded video 4" },
+    { type: "video", youtubeId: "4EkxvfUIIgA", alt: "BlueChew branded video 5" },
+    { type: "video", youtubeId: "bY7YZQqRJ7o", alt: "BlueChew branded video 6" },
+    { type: "video", youtubeId: "V86KEX9uGTg", alt: "BlueChew branded video 7" },
+    { type: "video", youtubeId: "qnDP3MYZQm8", alt: "BlueChew branded video 8" },
   ];
 
   return (
