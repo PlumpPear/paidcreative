@@ -146,24 +146,25 @@ function Approach() {
 function Results() {
   const stats = [
     {
-      value: "$100M+",
-      label: "Annual Revenue",
-      description: "From zero to nine figures in five years, bootstrapped",
+      value: "100M",
+      label: "Conversion Objective Impressions",
+      description: "Over $100k in spend on our ads within 30 days",
     },
     {
-      value: "$58M+",
-      label: "Ad Spend Managed",
-      description: "Deployed profitably at a 1.4x NC ROAS average",
+      value: "3",
+      label: "Hero Ads",
+      description: "Top 10 conversion driving ads in the entire portfolio",
     },
     {
-      value: "10,000+",
-      label: "Creatives Produced",
-      description: "Weekly sprints across Meta, TV, and Google",
+      value: "1",
+      label: "Month Till First Delivery",
+      description:
+        "5 net new scripted, cast, produced and edited concepts with 15 final assets total",
     },
     {
-      value: "4+",
-      label: "Years in Meta Disruptors",
-      description: "Top-tier access to Meta’s support and beta features",
+      value: "6",
+      label: "Month Contract Renewal",
+      description: "Expanded scope and timeline quickly",
     },
   ];
 
@@ -306,11 +307,11 @@ export default function Bluechew() {
     <>
       <main>
         <Hero />
-        <ContextStrip />
+        <Results />
         <Challenge />
         <BrandShowcase />
         <Approach />
-        <Results />
+        <ContextStrip />
         <Testimonial />
         <Contact />
       </main>
