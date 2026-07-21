@@ -93,10 +93,12 @@ function BrandShowcase() {
       <div className="casestudy-brand-content">
         <h2 className="casestudy-story-heading">The Brand</h2>
         <p className="casestudy-brand-body">
-          We built a creative identity rooted in humor, irreverence, and scroll-stopping
-          visuals. Our assets were engineered to entertain first AND convert.
-          Every piece of content was designed to feel native to the feed while driving
-          measurable performance.
+          Sex sells, but BlueChew recognized the need to establish brand credibility
+          in additional ways. As a mature Direct To Consumer brand that deeply
+          understands their customers and core marketing personas they contracted us
+          to add humor to their portfolio in addition to serious science based and
+          seductive advertisements. The result is a blend of comedy and promiscuity
+          that drives efficient performance while building strong brand recognition.
         </p>
         <div className="casestudy-brand-grid">
           {items.map((item, i) => (
