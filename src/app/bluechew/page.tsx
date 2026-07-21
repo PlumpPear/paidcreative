@@ -134,21 +134,21 @@ function Approach() {
   const steps = [
     {
       number: "01",
-      title: "Creative Sprints, Not Campaigns",
+      title: "High Quality Branded Content",
       description:
-        "We ran weekly production cycles like a dev team: scripting, shooting, and editing 20–50 ad variations per week. Every concept was built to test a single variable: hook, offer, format, or audience angle.",
+        "Each and every concept was custom scripted, cast, shot and edited with BlueChew in mind. We married custom production with e-commerce best practices, shooting each concept in a way to get several storylines and test different hooks, value props and call to actions.",
     },
     {
       number: "02",
-      title: "Test Fast, Scale Winners",
+      title: "UGC Support",
       description:
-        "New concepts launched weekly. This cycle ran every week for five years. We produced well over 10,000 creatives total.",
+        "Alongside each and every higher production shoot, we filmed quicker UGC scripts and high quality b-roll to supplement the more polished shots on goal. Each shoot resulted in a variety of concepts to increase the likelihood of finding a winner.",
     },
     {
       number: "03",
-      title: "From Performance Ads to Primetime TV",
+      title: "Fresh Ideas Plus Remixing",
       description:
-        "As Meta scaled, we brought the same direct response discipline to television. We aired primetime commercials on ESPN, CNN, and Golf Channel. Every TV spot was built to convert, not just build awareness.",
+        "Learnings from the previous month and the rest of BlueChew's portfolio are constantly evaluated to improve our future creative. We also throw in some totally net new ideas and concepts to keep things fresh. Making effective advertising is a blend of art and (data) science.",
     },
   ];
 
