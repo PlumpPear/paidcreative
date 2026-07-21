@@ -49,7 +49,7 @@ function Challenge() {
         <h2 className="casestudy-story-heading">The Challenge</h2>
         <div className="casestudy-story-body">
           <p>
-            BlueChew is a $600M+ men&apos;s health brand spending millions a WEEK on
+            BlueChew is a $400M+ men&apos;s health brand spending millions a WEEK on
             paid media. They hired Paid Creative to do one thing: make
             branded-comedy ads that build the brand AND convert.
           </p>
@@ -80,13 +80,13 @@ function BrandShowcase() {
     alt: string;
   }[] = [
     { type: "video", youtubeId: "sqsBkqhVyHQ", alt: "BlueChew branded video 1" },
-    { type: "video", youtubeId: "GoVR5i8NIcs", alt: "BlueChew branded video 2" },
+    { type: "video", youtubeId: "qnDP3MYZQm8", alt: "BlueChew branded video 2" },
     { type: "video", youtubeId: "ynfPhxvGFLo", alt: "BlueChew branded video 3" },
     { type: "video", youtubeId: "OHHBTPmsGWY", alt: "BlueChew branded video 4" },
     { type: "video", youtubeId: "4EkxvfUIIgA", alt: "BlueChew branded video 5" },
     { type: "video", youtubeId: "bY7YZQqRJ7o", alt: "BlueChew branded video 6" },
     { type: "video", youtubeId: "V86KEX9uGTg", alt: "BlueChew branded video 7" },
-    { type: "video", youtubeId: "qnDP3MYZQm8", alt: "BlueChew branded video 8" },
+    { type: "video", youtubeId: "GoVR5i8NIcs", alt: "BlueChew branded video 8" },
   ];
 
   return (
