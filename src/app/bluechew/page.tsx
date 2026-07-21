@@ -23,7 +23,7 @@ function Hero() {
 function ContextStrip() {
   const details = [
     { label: "Industry", value: "Men’s Health" },
-    { label: "Main Platform", value: "Meta" },
+    { label: "Main Platforms", value: "Meta, YouTube" },
     { label: "Timeline", value: "2026" },
     { label: "Our Role", value: "Performance & Branded Creative Production" },
   ];
@@ -61,7 +61,7 @@ function Challenge() {
             upsetting creative that had been running for months.
           </p>
           <p>
-            The result: a 6 month trail renewal and buy-in across the organization
+            The result: a 6 month trial renewal and buy-in across the organization
             that allowed us to double down on production quality, talent, and
             editing. Every single batch of creative has produced a top 25% creative
             by spend and purchase volume in their portfolio.
@@ -336,11 +336,11 @@ export default function Bluechew() {
     <>
       <main>
         <Hero />
-        <Results />
+        <ContextStrip />
         <Challenge />
         <BrandShowcase />
         <Approach />
-        <ContextStrip />
+        <Results />
         <Testimonial />
         <Contact />
       </main>
