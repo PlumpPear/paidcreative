@@ -61,8 +61,8 @@ function Challenge() {
             upsetting creative that had been running for months.
           </p>
           <p>
-            The result: a 6 month trial renewal and buy-in across the organization
-            that allowed us to double down on production quality, talent, and
+            <strong>The results: a 6 month contract renewal after 1 month of
+            deliverables</strong> that allowed us to double down on production quality, talent, and
             editing. Every single batch of creative has produced a top 25% creative
             by spend and purchase volume in their portfolio.
           </p>
