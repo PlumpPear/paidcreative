@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Paid Creative — Men's Apparel Creative That Scales",
+  title: "Paid Creative — Men's Lifestyle Creative That Scales",
   description:
     "Improve Meta ROAS in 2 weeks through better creative and a merchandising focused account structure.",
 };
