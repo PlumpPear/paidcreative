@@ -341,7 +341,7 @@ export default function Bluechew() {
         <BrandShowcase />
         <Approach />
         <Results />
-        <Testimonial />
+        {/* <Testimonial /> hidden for now */}
         <Contact />
       </main>
       <Footer />
