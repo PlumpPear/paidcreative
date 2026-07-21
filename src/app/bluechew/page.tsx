@@ -49,21 +49,22 @@ function Challenge() {
         <h2 className="casestudy-story-heading">The Challenge</h2>
         <div className="casestudy-story-body">
           <p>
-            birddogs had a clear thesis. Activewear had split into two dead
-            ends: stuffy brands that took themselves too seriously, and brands
-            that were funny but didn&apos;t prioritize a quality product. We set out to
-            be both the brand men actually wanted to hear from, and the best
-            shorts they&apos;d ever worn.
+            BlueChew is a $600M+ men&apos;s health brand spending millions a WEEK on
+            paid media. They hired Paid Creative to do one thing: make
+            branded-comedy ads that build the brand AND convert.
           </p>
           <p>
-            But we had no outside funding, no agency, and no proven playbook for
-            scaling a men&apos;s DTC brand past the first million.
+            Within 30 days we delivered 15 finished ads across 5 distinct
+            production shoots. A week after launching the first batch of creative
+            it was clear we had produced several winners. Multiple of our ads
+            landed in the top 10 spend &amp; purchase volume reports within a week,
+            upsetting creative that had been running for months.
           </p>
           <p>
-            The founding team needed to build a creative engine that could produce, test, and
-            scale ad concepts fast enough to sustain profitable growth on Meta. We did that, and
-            expanded into TV, YouTube, and AppLovin without losing the direct response DNA that built the
-            business.
+            The result: a 6 month trail renewal and buy-in across the organization
+            that allowed us to double down on production quality, talent, and
+            editing. Every single batch of creative has produced a top 25% creative
+            by spend and purchase volume in their portfolio.
           </p>
         </div>
       </div>
