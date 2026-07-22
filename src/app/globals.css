@@ -404,7 +404,7 @@ body {
   width: auto;
   max-width: 70%;
   object-fit: contain;
-  filter: grayscale(100%);
+  filter: brightness(0);
   margin-bottom: 2.5rem;
 }
 
