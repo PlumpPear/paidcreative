@@ -25,7 +25,14 @@ function ContextStrip() {
     { label: "Industry", value: "Men’s Apparel" },
     { label: "Main Platforms", value: "Meta, TV, YouTube, Website" },
     { label: "Timeline", value: "2025–Present" },
-    { label: "Our Role", value: "Paid Ads Creative Directors & Head of Ops" },
+    {
+      label: "Our Role",
+      value: (
+        <>
+          Paid Ads Creative Director<br />Head of Ops
+        </>
+      ),
+    },
   ];
 
   return (
