@@ -164,11 +164,6 @@ function Approach() {
 function Results() {
   const stats = [
     {
-      value: "10+",
-      label: "Hero Ads",
-      description: "Ads that spend more than $1M",
-    },
-    {
       value: "3,000+",
       label: "Videos Reviewed",
       description: "We are in the weeds improving creative where it matters most",
@@ -184,6 +179,11 @@ function Results() {
       label: "Hours Saved",
       description:
         "Maybe most importantly, we freed the Co-Founders time back up to focus on other things",
+    },
+    {
+      value: "10+",
+      label: "Hero Ads",
+      description: "Ads that spend more than $1M",
     },
   ];
 
