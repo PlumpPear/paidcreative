@@ -208,21 +208,22 @@ function Testimonial() {
     <section className="casestudy-testimonial">
       <div className="casestudy-testimonial-content">
         <blockquote className="casestudy-pullquote">
-          &ldquo;Madison, Sam and myself built birddogs from the ground up. Sam&apos;s
-          creative instinct, direction and production combined with Madison&apos;s
-          growth marketing leadership were the magic behind building a massive
-          brand totally bootstrapped with zero resources. You won&apos;t find a
-          better team to advise and scale a brand online than these two.&rdquo;
+          &ldquo;So fun working with Sam and Madison from Paid Creative! They&apos;ve
+          become a swiss army knife on our creative team. We needed a TV commercial,
+          they shot one. We needed 500 product shots touched up? They handled it. We
+          needed to push agencies on script and creator quality? They stepped in.
+          Sorta like the friend who &ldquo;has a a guy for it.&rdquo; They just get
+          stuff done and WELL.&rdquo;
         </blockquote>
         <div className="casestudy-testimonial-author">
           <img
-            src="/paid_creative_testimonial_1.jpg"
-            alt="Peter Baldwin"
+            src="/paid_creative_testimonial_3.jpeg"
+            alt="Ovadia Labaton"
             className="casestudy-testimonial-image"
           />
           <div className="casestudy-testimonial-info">
-            <h4>Peter Baldwin</h4>
-            <p>Founder &amp; CEO, <span className="company">birddogs</span></p>
+            <h4>Ovadia Labaton</h4>
+            <p>Co-Founder, <span className="company">The Perfect Jean</span></p>
           </div>
         </div>
       </div>
