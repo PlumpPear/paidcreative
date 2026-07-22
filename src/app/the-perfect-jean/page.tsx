@@ -98,10 +98,14 @@ function BrandShowcase() {
       <div className="casestudy-brand-content">
         <h2 className="casestudy-story-heading">The Brand</h2>
         <p className="casestudy-brand-body">
-          We built a creative identity rooted in humor, irreverence, and scroll-stopping
-          visuals. Our assets were engineered to entertain first AND convert.
-          Every piece of content was designed to feel native to the feed while driving
-          measurable performance.
+          With a slogan like, &ldquo;#F#%K YOUR KHAKIS&rdquo; you can tell that The
+          Perfect Jean doesn&apos;t take themselves too seriously. But they do make
+          an amazing product that men everywhere love. The mass demand for products
+          like denim, khaki pants, t-shirts, shorts and hoodies combined with their
+          everyday guy humorous brand allowed us to scale revenue and lower CPAs
+          quickly with better creative. Here are examples of hero ads either
+          produced entirely by Paid Creative or greatly assisted through creative
+          strategy and revising the output.
         </p>
         <div className="casestudy-brand-grid">
           {images.map((img) => (
