@@ -146,9 +146,9 @@ function Approach() {
 function Results() {
   const stats = [
     {
-      value: "$100M+",
+      value: "$50M+",
       label: "Annual Revenue",
-      description: "From zero to nine figures in five years, bootstrapped",
+      description: "From zero to eight figures in five years, bootstrapped",
     },
     {
       value: "$58M+",
