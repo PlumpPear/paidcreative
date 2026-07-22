@@ -29,7 +29,7 @@ function ContextStrip() {
       label: "Our Role",
       value: (
         <>
-          Paid Ads Creative Director<br />Head of Ops
+          Paid Ads Creative Director<br />Head of Creative Ops
         </>
       ),
     },
