@@ -164,24 +164,26 @@ function Approach() {
 function Results() {
   const stats = [
     {
-      value: "$100M+",
-      label: "Annual Revenue",
-      description: "From zero to nine figures in five years, bootstrapped",
+      value: "10+",
+      label: "Hero Ads",
+      description: "Ads that spend more than $1M",
     },
     {
-      value: "$58M+",
-      label: "Ad Spend Managed",
-      description: "Deployed profitably at a 1.4x NC ROAS average",
+      value: "3,000+",
+      label: "Videos Reviewed",
+      description: "We are in the weeds improving creative where it matters most",
     },
     {
-      value: "10,000+",
-      label: "Creatives Produced",
-      description: "Weekly sprints across Meta, TV, and Google",
+      value: "24+",
+      label: "Partner Agencies",
+      description:
+        "We’ve become a better agency by working with dozens on behalf of The Perfect Jean",
     },
     {
-      value: "4+",
-      label: "Years in Meta Disruptors",
-      description: "Top-tier access to Meta’s support and beta features",
+      value: "2k+",
+      label: "Hours Saved",
+      description:
+        "Maybe most importantly, we freed the Co-Founders time back up to focus on other things",
     },
   ];
 
