@@ -123,21 +123,21 @@ function Approach() {
   const steps = [
     {
       number: "01",
-      title: "Creative Sprints, Not Campaigns",
+      title: "Start with Creative Strategy",
       description:
-        "We ran weekly production cycles like a dev team: scripting, shooting, and editing 20–50 ad variations per week. Every concept was built to test a single variable: hook, offer, format, or audience angle.",
+        "Getting better results from your advertising is a lot easier when you focus on what really moves the needle. What are our customers telling us about how they use our products, their pain points, barriers & motivators to purchase? What products drive the highest LTV, what offers increase conversion rate the most, what skus do we need to sell to best free up cash? Merging business and content strategy together is going to beat “let’s throw spaghetti against the wall and see what sticks” every time.",
     },
     {
       number: "02",
-      title: "Test Fast, Scale Winners",
+      title: "Getting The Details Right",
       description:
-        "New concepts launched weekly. This cycle ran every week for five years. We produced well over 10,000 creatives total.",
+        "Reviewing hundreds of videos and static assets monthly is pain to be honest. But it is required to be successful. What is the hook, the timing of value props, editing style, captioning, who to cast, all these things add up to make ads appealing to customers and beat out other competitors in the auction.",
     },
     {
       number: "03",
-      title: "From Performance Ads to Primetime TV",
+      title: "Scale Volume",
       description:
-        "As Meta scaled, we brought the same direct response discipline to television. We aired primetime commercials on ESPN, CNN, and Golf Channel. Every TV spot was built to convert, not just build awareness.",
+        "Only with the right strategy and a thorough review process does it make sense to start scaling volume. Through offering creative strategy and content best practice leadership we were able to elevate agency partners & The Perfect Jean’s performance.",
     },
   ];
 
