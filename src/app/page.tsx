@@ -36,8 +36,8 @@ function Hero() {
         <p className="hero-description">
           Improve Meta ROAS in 2 weeks with better creative and media buying.
         </p>
-        <Link href="/birddogs" className="cta-button">
-          $50M Case Study
+        <Link href="/case-studies" className="cta-button">
+          Case Studies
         </Link>
       </div>
     </section>
@@ -238,7 +238,7 @@ function Footer() {
           <h4>Resources</h4>
           <ul className="footer-links">
             <li>
-              <Link href="/birddogs" className="footer-link">
+              <Link href="/case-studies" className="footer-link">
                 Case Studies
               </Link>
             </li>

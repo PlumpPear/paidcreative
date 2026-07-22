@@ -390,6 +390,41 @@ body {
   box-shadow: var(--shadow-card);
 }
 
+/* Case-study card variant: reuses the card shell, drops the quote glyph,
+   centers content, and renders as a whole-card link. */
+.testimonial-card--case {
+  text-align: center;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.testimonial-card--case::before {
+  content: none;
+}
+
+.case-card-logo {
+  height: 44px;
+  width: auto;
+  max-width: 70%;
+  object-fit: contain;
+  filter: grayscale(100%);
+  margin-bottom: 2.5rem;
+}
+
+.case-card-link {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+  transition: color var(--transition);
+}
+
+.testimonial-card--case:hover .case-card-link {
+  color: var(--color-blue);
+}
+
 .quote {
   font-size: var(--text-base);
   line-height: 1.75;
@@ -754,6 +789,11 @@ body {
 }
 
 /* /bluechew hero background image */
+.casestudy-hero--casestudies {
+  background: linear-gradient(var(--overlay), var(--overlay)),
+    url("/birddogs_case_study_hero.jpg") center / cover no-repeat;
+}
+
 .casestudy-hero--bluechew {
   background: linear-gradient(var(--overlay), var(--overlay)),
     url("/bluechew_case_study_hero.png") center / cover no-repeat;

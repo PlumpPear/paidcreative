@@ -323,7 +323,7 @@ function Footer() {
           <h4>Resources</h4>
           <ul className="footer-links">
             <li>
-              <Link href="/birddogs" className="footer-link">
+              <Link href="/case-studies" className="footer-link">
                 Case Studies
               </Link>
             </li>
