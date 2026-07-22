@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function Hero() {
   return (
-    <section className="casestudy-hero">
+    <section className="casestudy-hero casestudy-hero--tpj">
       <div className="casestudy-hero-content fade-in-up">
         <p className="casestudy-label">Case Study</p>
         <h1>

@@ -792,7 +792,12 @@ body {
 
 .casestudy-hero--bluechew {
   background: linear-gradient(var(--overlay), var(--overlay)),
-    url("/bluechew_case_study_hero.png") center / cover no-repeat;
+    url("/bluechew_case_study_hero_compressed.png") center / cover no-repeat;
+}
+
+.casestudy-hero--tpj {
+  background: linear-gradient(var(--overlay), var(--overlay)),
+    url("/TPJ_case_study_hero_compressed.png") center / cover no-repeat;
 }
 
 /* Smaller hero title variant (used on /bluechew for long headlines) */
