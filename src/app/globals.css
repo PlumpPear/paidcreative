@@ -870,6 +870,14 @@ body {
   margin-bottom: 3.5rem;
 }
 
+.casestudy-brand-body p {
+  margin-bottom: 1.5rem;
+}
+
+.casestudy-brand-body p:last-child {
+  margin-bottom: 0;
+}
+
 .casestudy-brand-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

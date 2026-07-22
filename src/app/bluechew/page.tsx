@@ -93,14 +93,25 @@ function BrandShowcase() {
     <section className="casestudy-brand">
       <div className="casestudy-brand-content">
         <h2 className="casestudy-story-heading">The Brand</h2>
-        <p className="casestudy-brand-body">
-          Sex sells, but BlueChew recognized the need to establish brand credibility
-          in additional ways. As a mature Direct To Consumer brand that deeply
-          understands their customers and core marketing personas they contracted us
-          to add humor to their portfolio in addition to serious science based and
-          seductive advertisements. The result is a blend of comedy and promiscuity
-          that drives efficient performance while building strong brand recognition.
-        </p>
+        <div className="casestudy-brand-body">
+          <p>
+            BlueChew came to us wanting ads that were memorable AND drove
+            conversions. Plenty of agencies will swear this can&apos;t happen.
+            They&apos;ll tell you brand and performance can&apos;t live inside the
+            same Meta campaign because they are afraid their ads won&apos;t be able
+            to compete with bottom of funnel UGC or Offer driven ads.
+          </p>
+          <p>
+            We&apos;ve spent our careers crafting brand building assets that compete
+            with bottom of funnel creative.
+          </p>
+          <p>
+            BlueChew wanted a moat built on brand. You could try to copy their
+            product, but you can&apos;t copy their brand memorability. That&apos;s
+            what Paid Creative does better than anyone: our creative stops men
+            mid-scroll and pops in their heads when it&apos;s time to buy.
+          </p>
+        </div>
         <div className="casestudy-brand-grid">
           {items.map((item, i) => (
             <div
