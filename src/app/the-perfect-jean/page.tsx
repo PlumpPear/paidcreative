@@ -7,8 +7,7 @@ function Hero() {
       <div className="casestudy-hero-content fade-in-up">
         <p className="casestudy-label">Case Study</p>
         <h1>
-          $0 to $50M<br />
-          in 5 years
+          Leading a $30M content team.
         </h1>
         <img
           src="/tpj_logo copy.png"
