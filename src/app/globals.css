@@ -797,7 +797,7 @@ body {
 
 .casestudy-hero--tpj {
   background: linear-gradient(var(--overlay), var(--overlay)),
-    url("/TPJ_case_study_hero1.png") center / cover no-repeat;
+    url("/TPJ_case_study_hero2_compressed.png") center / cover no-repeat;
 }
 
 /* Smaller hero title variant (used on /bluechew for long headlines) */
