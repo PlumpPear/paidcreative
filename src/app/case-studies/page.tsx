@@ -27,6 +27,13 @@ function CaseStudyGrid() {
       blurb:
         "How we made multiple top 10 spending ads inside a $400M men's health company's ad portfolio in 1 month AND smashed their CPA goal.",
     },
+    {
+      href: "/the-perfect-jean",
+      logo: "/tpj_logo copy.png",
+      logoAlt: "The Perfect Jean",
+      blurb:
+        "The stretch jean men actually want to wear — scaled with performance creative that converts.",
+    },
   ];
 
   return (
