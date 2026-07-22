@@ -32,7 +32,7 @@ function CaseStudyGrid() {
       logo: "/tpj_logo copy.png",
       logoAlt: "The Perfect Jean",
       blurb:
-        "The stretch jean men actually want to wear — scaled with performance creative that converts.",
+        "How we led a team of ad agencies for one of the largest men's DTC denim brands to increase spend while decreasing CAC and having their most profitable year ever.",
     },
   ];
 
