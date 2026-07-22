@@ -18,14 +18,14 @@ function CaseStudyGrid() {
       logo: "/birddogs_logo_1.png",
       logoAlt: "birddogs",
       blurb:
-        "$0 to $50M in five years — a men's activewear juggernaut built from the ground up, bootstrapped.",
+        "$0 to $50M in 5 years. A brand Sam & Madison (Co-Founders of Paid Creative) built personally without raising venture funds. This is where we learned how to design a great product and scale a brand with paid ads.",
     },
     {
       href: "/bluechew",
       logo: "/bluechew_logo1.svg",
       logoAlt: "BlueChew",
       blurb:
-        "Comedy that converts: 100M+ impressions and account-leading performance for America's #1 men's health brand.",
+        "How we made multiple top 10 spending ads inside a $400M men's health company's ad portfolio in 1 month AND smashed their CPA goal.",
     },
   ];
 
