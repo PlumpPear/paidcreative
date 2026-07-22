@@ -56,21 +56,28 @@ function Challenge() {
         <h2 className="casestudy-story-heading">The Challenge</h2>
         <div className="casestudy-story-body">
           <p>
-            birddogs had a clear thesis. Activewear had split into two dead
-            ends: stuffy brands that took themselves too seriously, and brands
-            that were funny but didn&apos;t prioritize a quality product. We set out to
-            be both the brand men actually wanted to hear from, and the best
-            shorts they&apos;d ever worn.
+            The Perfect Jean built a successful paid ads strategy leveraging
+            multiple agencies. Creative diversity and content volume was at an
+            all time high, but CAC was rising and creative quality felt
+            &ldquo;off.&rdquo;
           </p>
           <p>
-            But we had no outside funding, no agency, and no proven playbook for
-            scaling a men&apos;s DTC brand past the first million.
+            Paid Creative was contracted for two things. Add our own ads into the
+            content mix and act as a &ldquo;creative quartermaster&rdquo; to keep
+            quality high across all agencies. Our most impactful improvements came
+            from helping decide the creative strategy across 5-7 agencies at a
+            time. Once we were focused on making the right content, improving the
+            output was more straightforward.
           </p>
           <p>
-            The founding team needed to build a creative engine that could produce, test, and
-            scale ad concepts fast enough to sustain profitable growth on Meta. We did that, and
-            expanded into TV, YouTube, and AppLovin without losing the direct response DNA that built the
-            business.
+            We review EVERY piece of content from EVERY agency and provide
+            detailed comments to improve the quality of the creative. This spans
+            static images, UGC briefs and videos, TV commercials, etc.
+          </p>
+          <p>
+            Over time we helped hire and fire agencies. Working more with high
+            performers, cutting laggards and finding new partners to test several
+            times per quarter.
           </p>
         </div>
       </div>
