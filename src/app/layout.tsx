@@ -4,10 +4,26 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
+const siteTitle = "Paid Creative — Men's Lifestyle Creative That Scales";
+const siteDescription =
+  "Improve Meta ROAS in 2 weeks through better creative and a merchandising focused account structure.";
+
 export const metadata: Metadata = {
-  title: "Paid Creative — Men's Lifestyle Creative That Scales",
-  description:
-    "Improve Meta ROAS in 2 weeks through better creative and a merchandising focused account structure.",
+  metadataBase: new URL("https://paidcreative.com"),
+  title: siteTitle,
+  description: siteDescription,
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    url: "https://paidcreative.com",
+    siteName: "Paid Creative",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+  },
 };
 
 export default function RootLayout({
