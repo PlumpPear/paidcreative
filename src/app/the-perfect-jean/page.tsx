@@ -85,11 +85,10 @@ function Challenge() {
 }
 
 function BrandShowcase() {
-  const images = [
-    { src: "/birddogs_case_study_brand_1.jpg", alt: "birddogs branded creative 1" },
-    { src: "/birddogs_case_study_brand_2.jpg", alt: "birddogs branded creative 2" },
-    { src: "/birddogs_case_study_brand_3.jpg", alt: "birddogs branded creative 3" },
-    { src: "/birddogs_case_study_brand_4.jpg", alt: "birddogs branded creative 4" },
+  const videos = [
+    { youtubeId: "O9c--b_B-bA", alt: "The Perfect Jean hero ad 1" },
+    { youtubeId: "o-poUNctAIo", alt: "The Perfect Jean hero ad 2" },
+    { youtubeId: "cOY9OguSPcE", alt: "The Perfect Jean hero ad 3" },
   ];
 
   return (
@@ -106,10 +105,19 @@ function BrandShowcase() {
           produced entirely by Paid Creative or greatly assisted through creative
           strategy and revising the output.
         </p>
-        <div className="casestudy-brand-grid">
-          {images.map((img) => (
-            <div key={img.src} className="casestudy-brand-image-wrapper">
-              <img src={img.src} alt={img.alt} className="casestudy-brand-image" />
+        <div className="casestudy-brand-grid casestudy-brand-grid--three">
+          {videos.map((v) => (
+            <div
+              key={v.youtubeId}
+              className="casestudy-brand-image-wrapper casestudy-brand-image-wrapper--video"
+            >
+              <iframe
+                className="casestudy-brand-video"
+                src={`https://www.youtube.com/embed/${v.youtubeId}`}
+                title={v.alt}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
             </div>
           ))}
         </div>

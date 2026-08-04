@@ -924,6 +924,11 @@ body {
   gap: 1.5rem;
 }
 
+/* 3-up brand grid variant (used on /the-perfect-jean) */
+.casestudy-brand-grid--three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .casestudy-brand-image-wrapper {
   aspect-ratio: 1 / 1;
   overflow: hidden;
