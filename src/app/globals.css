@@ -956,6 +956,27 @@ body {
   display: block;
 }
 
+/* Landscape (16:9) video grid below the brand images (2-up desktop, 1-up mobile) */
+.casestudy-brand-video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.casestudy-brand-video-wrapper {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--color-raised);
+  border-radius: var(--radius-sm);
+}
+
+@media (max-width: 768px) {
+  .casestudy-brand-video-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .casestudy-brand-image-wrapper:hover .casestudy-brand-image {
   transform: scale(1.03);
 }

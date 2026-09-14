@@ -78,6 +78,13 @@ function BrandShowcase() {
     { src: "/birddogs_case_study_brand_4.jpg", alt: "birddogs branded creative 4" },
   ];
 
+  const videos = [
+    { youtubeId: "eLDNi4Mr9Mw", alt: "birddogs hero ad 1" },
+    { youtubeId: "jH8bvuqSjgg", alt: "birddogs hero ad 2" },
+    { youtubeId: "xCisGywMfA0", alt: "birddogs hero ad 3" },
+    { youtubeId: "eWXpTNNRKuo", alt: "birddogs hero ad 4" },
+  ];
+
   return (
     <section className="casestudy-brand">
       <div className="casestudy-brand-content">
@@ -92,6 +99,19 @@ function BrandShowcase() {
           {images.map((img) => (
             <div key={img.src} className="casestudy-brand-image-wrapper">
               <img src={img.src} alt={img.alt} className="casestudy-brand-image" />
+            </div>
+          ))}
+        </div>
+        <div className="casestudy-brand-video-grid">
+          {videos.map((v) => (
+            <div key={v.youtubeId} className="casestudy-brand-video-wrapper">
+              <iframe
+                className="casestudy-brand-video"
+                src={`https://www.youtube.com/embed/${v.youtubeId}`}
+                title={v.alt}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
             </div>
           ))}
         </div>
