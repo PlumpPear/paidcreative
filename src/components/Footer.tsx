@@ -52,6 +52,11 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/portfolio" className="footer-link">
+                Portfolio
+              </Link>
+            </li>
+            <li>
               <Link href="#" className="footer-link">
                 Privacy Policy
               </Link>
