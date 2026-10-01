@@ -2,6 +2,7 @@
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import YouTubeTile from "@/components/YouTubeTile";
+import { ShortsScene } from "@/components/pigeon/ScrollScenes";
 import { brands, type PortfolioBrand, type PortfolioVideo } from "./data";
 
 type PlayState = { playingId: string | null; play: (id: string) => void };
@@ -181,6 +182,7 @@ function BrandSection({ brand, playState }: { brand: PortfolioBrand; playState: 
 
   return (
     <section id={brand.slug} className="portfolio-brand">
+      {brand.slug === "birddogs" && <ShortsScene />}
       <div className="portfolio-brand-header">
         <div>
           <img src={brand.logo} alt={brand.name} className="portfolio-brand-logo" />

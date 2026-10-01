@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TaxiScene } from "@/components/pigeon/ScrollScenes";
 
 export default function Footer() {
   return (
@@ -64,6 +65,7 @@ export default function Footer() {
           </ul>
         </div>
       </div>
+      <TaxiScene />
       <div className="footer-bottom">
         <p>&copy; 2026 Paid Creative. All rights reserved.</p>
       </div>
