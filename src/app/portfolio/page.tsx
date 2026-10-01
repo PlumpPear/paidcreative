@@ -12,7 +12,7 @@ export default function Portfolio() {
     <main className="portfolio-page">
       <header className="portfolio-intro">
         <div className="fade-in-up">
-          <p className="casestudy-label">Our Work</p>
+          <p className="casestudy-label">Our Media</p>
           <h1 className="portfolio-title">Portfolio</h1>
           <p className="portfolio-intro-text">
             Ads we&apos;ve made for men&apos;s lifestyle brands. Click any video

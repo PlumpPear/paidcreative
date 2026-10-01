@@ -175,12 +175,12 @@ function VerticalRail({
   );
 }
 
-function BrandPanel({ brand, playState }: { brand: PortfolioBrand; playState: PlayState }) {
+function BrandSection({ brand, playState }: { brand: PortfolioBrand; playState: PlayState }) {
   const horizontal = brand.videos.filter((v) => v.format === "horizontal");
   const vertical = brand.videos.filter((v) => v.format === "vertical");
 
   return (
-    <div className="portfolio-panel fade-in-up" id={`panel-${brand.slug}`} role="tabpanel">
+    <section id={brand.slug} className="portfolio-brand">
       <div className="portfolio-brand-header">
         <div>
           <img src={brand.logo} alt={brand.name} className="portfolio-brand-logo" />
@@ -202,65 +202,78 @@ function BrandPanel({ brand, playState }: { brand: PortfolioBrand; playState: Pl
       {vertical.length > 0 && (
         <VerticalRail brand={brand} videos={vertical} playState={playState} />
       )}
-    </div>
+    </section>
   );
 }
 
-// Graza-style list of brands on the side; the pigeon logo hops to the
-// selected one.
-function BrandToggle({
-  active,
-  onSelect,
-}: {
-  active: string;
-  onSelect: (slug: string) => void;
-}) {
-  const listRef = useRef<HTMLDivElement>(null);
-  const [pigeonY, setPigeonY] = useState<number | null>(null);
-  const [hops, setHops] = useState(0);
+// Graza-style brand list pinned to the side (a sticky row on mobile). The
+// pigeon logo flies to the dot of the brand section currently in view.
+function BrandNav({ active }: { active: string }) {
+  const navRef = useRef<HTMLElement>(null);
+  const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
+  const [flights, setFlights] = useState(0);
+  const prevActive = useRef(active);
 
   useLayoutEffect(() => {
     const place = () => {
-      const btn = listRef.current?.querySelector<HTMLElement>(`[data-slug="${active}"]`);
-      if (btn) setPigeonY(btn.offsetTop + btn.offsetHeight / 2);
+      const nav = navRef.current;
+      const dot = nav?.querySelector<HTMLElement>(`[data-slug="${active}"] .portfolio-nav-dot`);
+      if (!nav || !dot) return;
+      const n = nav.getBoundingClientRect();
+      const d = dot.getBoundingClientRect();
+      setPos({
+        x: d.left - n.left + nav.scrollLeft + d.width / 2,
+        y: d.top - n.top + d.height / 2,
+      });
     };
     place();
+    // Mobile: the nav is a sideways-scrolling row; keep the active brand visible.
+    const nav = navRef.current;
+    const item = nav?.querySelector<HTMLElement>(`[data-slug="${active}"]`);
+    if (nav && item && nav.scrollWidth > nav.clientWidth) {
+      nav.scrollTo({ left: item.offsetLeft - nav.clientWidth / 2 + item.offsetWidth / 2, behavior: "smooth" });
+    }
+    if (prevActive.current !== active) {
+      prevActive.current = active;
+      setFlights((f) => f + 1);
+    }
     window.addEventListener("resize", place);
     return () => window.removeEventListener("resize", place);
   }, [active]);
 
   return (
-    <div className="portfolio-toggle" ref={listRef} role="tablist" aria-orientation="vertical">
-      {pigeonY !== null && (
-        <span className="portfolio-pigeon" style={{ top: pigeonY }} aria-hidden="true">
+    <nav className="portfolio-nav" ref={navRef} aria-label="Brands">
+      {pos && (
+        <span
+          className="portfolio-pigeon"
+          style={{ left: pos.x, top: pos.y }}
+          aria-hidden="true"
+        >
           <img
-            key={hops}
+            key={flights}
             src="/paid-creative-pigeon-logo.png"
             alt=""
-            className={hops ? "portfolio-pigeon-hop" : undefined}
+            className={flights ? "portfolio-pigeon-fly" : undefined}
           />
         </span>
       )}
       {brands.map((b) => (
-        <button
+        <a
           key={b.slug}
-          type="button"
-          role="tab"
+          href={`#${b.slug}`}
           data-slug={b.slug}
-          aria-selected={active === b.slug}
-          aria-controls={`panel-${b.slug}`}
-          className="portfolio-toggle-item"
-          onClick={() => {
-            if (b.slug === active) return;
-            setHops((h) => h + 1);
-            onSelect(b.slug);
+          aria-current={active === b.slug ? "true" : undefined}
+          className="portfolio-nav-item"
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById(b.slug)?.scrollIntoView({ behavior: "smooth" });
           }}
         >
-          <span className="portfolio-toggle-dot" aria-hidden="true" />
+          <span className="portfolio-nav-dot" aria-hidden="true" />
           {b.name}
-        </button>
+        </a>
       ))}
-    </div>
+    </nav>
   );
 }
 
@@ -284,21 +297,43 @@ export default function PortfolioLibrary() {
     };
   }, [playingId]);
 
-  const brand = brands.find((b) => b.slug === active) ?? brands[0];
+  // Track which brand section is under the middle of the screen; at the very
+  // bottom of the page, fall back to the last section that's on screen.
+  useEffect(() => {
+    const update = () => {
+      const mid = window.innerHeight / 2;
+      const atBottom =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      const rects = brands.map((b) => ({
+        slug: b.slug,
+        rect: document.getElementById(b.slug)?.getBoundingClientRect(),
+      }));
+      const current = atBottom
+        ? rects.filter((r) => r.rect && r.rect.top < window.innerHeight).pop()
+        : rects.find((r) => r.rect && r.rect.top <= mid && r.rect.bottom > mid);
+      if (current) setActive(current.slug);
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
   const playState: PlayState = { playingId, play: setPlayingId };
 
   return (
-    <section className="portfolio-library">
-      <div className="portfolio-library-inner">
-        <BrandToggle
-          active={active}
-          onSelect={(slug) => {
-            setPlayingId(null);
-            setActive(slug);
-          }}
-        />
-        <BrandPanel key={brand.slug} brand={brand} playState={playState} />
+    <div className="portfolio-library">
+      <aside className="portfolio-nav-col">
+        <BrandNav active={active} />
+      </aside>
+      <div className="portfolio-sections">
+        {brands.map((brand) => (
+          <BrandSection key={brand.slug} brand={brand} playState={playState} />
+        ))}
       </div>
-    </section>
+    </div>
   );
 }
