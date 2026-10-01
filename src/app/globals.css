@@ -1225,273 +1225,9 @@ body {
   }
 }
 
-/* ── Portfolio Page ──
-   Brand sections alternate dark/white like the homepage. Sticky square tabs
-   jump between brands; 16:9 videos use a feature + row layout, 9:16 videos a
-   swipeable rail. .reveal elements fade up on scroll (PortfolioLibrary.tsx). */
-.portfolio-page {
-  background: var(--color-white);
-  color: var(--color-black);
-  overflow-x: clip; /* tilted marquee is wider than the viewport */
-}
-
-.portfolio-intro {
-  min-height: 78vh;
-  padding: 9rem var(--gutter) 5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: var(--color-white);
-  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.6)),
-    url("/portfolio_hero.jpg") center top / cover no-repeat;
-}
-
-.portfolio-intro .casestudy-label {
-  color: var(--color-on-dark);
-  margin-bottom: 1.25rem;
-}
-
-.portfolio-title {
-  font-family: var(--font-display);
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  font-size: var(--text-display-xl);
-  line-height: 1.05;
-  margin-bottom: 1.5rem;
-}
-
-.portfolio-intro-text {
-  font-size: var(--text-md);
-  color: var(--color-on-dark);
-  max-width: 560px;
-  margin: 0 auto;
-  line-height: 1.7;
-}
-
-/* Title: letters drop in on load and hop on hover */
-.portfolio-title-letter {
-  display: inline-block;
-  animation: portfolioDrop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s ease;
-}
-
-.portfolio-title-letter:hover {
-  transform: translateY(-0.12em) rotate(-4deg);
-  color: var(--color-blue);
-}
-
-@keyframes portfolioDrop {
-  from {
-    opacity: 0;
-    transform: translateY(-0.6em) rotate(-8deg);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-/* Scrolling brand band */
-.portfolio-marquee {
-  overflow: hidden;
-  background: var(--color-blue);
-  color: var(--color-white);
-  padding: 1.1rem 0;
-  transform: rotate(-1.5deg) scale(1.03);
-  margin: -1.75rem 0 2.5rem;
-  position: relative;
-  z-index: 2;
-  box-shadow: var(--shadow-cta);
-}
-
-.portfolio-marquee-track {
-  display: flex;
-  width: max-content;
-  animation: portfolioMarquee 28s linear infinite;
-}
-
-.portfolio-marquee:hover .portfolio-marquee-track {
-  animation-play-state: paused;
-}
-
-.portfolio-marquee-word {
-  display: inline-flex;
-  align-items: center;
-  font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3.5vw, 3rem);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
-}
-
-.portfolio-marquee-word--outline {
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--color-white);
-}
-
-.portfolio-marquee-star {
-  font-family: var(--font-body);
-  font-size: 0.6em;
-  color: var(--color-white);
-  -webkit-text-stroke: 0;
-  margin: 0 1.75rem;
-}
-
-@keyframes portfolioMarquee {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .portfolio-title-letter,
-  .portfolio-marquee-track {
-    animation: none;
-  }
-}
-
-/* Sticky brand tabs: square buttons, active one gets the site's blue CTA glow */
-.portfolio-tabs {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  display: flex;
-  justify-content: center;
-  gap: 0.75rem;
-  padding: 1.25rem var(--gutter);
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--color-border);
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.portfolio-tabs::-webkit-scrollbar {
-  display: none;
-}
-
-.portfolio-tab {
-  flex-shrink: 0;
-  padding: 0.9rem 1.75rem;
-  background: var(--color-white);
-  color: var(--color-black);
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  text-decoration: none;
-  transition: all var(--transition-smooth);
-}
-
-.portfolio-tab:hover {
-  border-color: var(--color-blue);
-  color: var(--color-blue);
-}
-
-.portfolio-tab[aria-current="true"] {
-  background: var(--color-blue);
-  border-color: var(--color-blue);
-  color: var(--color-white);
-  box-shadow: var(--shadow-cta);
-}
-
-/* Brand sections */
-.portfolio-brand {
-  padding: var(--section-y-sm) var(--gutter);
-  scroll-margin-top: 84px;
-  background: var(--color-white);
-  color: var(--color-black);
-}
-
-.portfolio-brand--dark {
-  background: var(--color-gray-900);
-  color: var(--color-white);
-}
-
-.portfolio-brand-inner {
-  max-width: var(--content-mid);
-  margin: 0 auto;
-}
-
-.portfolio-brand-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: var(--gap-sm);
-  margin-bottom: 3rem;
-}
-
-.portfolio-brand-logo {
-  height: 40px;
-  width: auto;
-  display: block;
-  margin-bottom: 1.25rem;
-  filter: brightness(0);
-}
-
-.portfolio-brand--dark .portfolio-brand-logo {
-  filter: grayscale(100%) brightness(0) invert(1);
-}
-
-.portfolio-brand-stat {
-  font-size: var(--text-md);
-  color: var(--color-text-muted);
-  max-width: 520px;
-  line-height: 1.6;
-}
-
-.portfolio-brand--dark .portfolio-brand-stat {
-  color: var(--color-on-dark-muted);
-}
-
-.portfolio-case-cta {
-  flex-shrink: 0;
-}
-
-/* Video tiles */
-.portfolio-card {
-  margin: 0;
-}
-
-.portfolio-frame {
-  --rx: 0deg;
-  --ry: 0deg;
-  position: relative;
-  overflow: hidden;
-  background: #d9d9d9;
-  border-radius: var(--radius-sm);
-  transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));
-  transition: transform 0.25s ease-out, box-shadow var(--transition);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .portfolio-frame:hover {
-    box-shadow: var(--shadow-card);
-  }
-}
-
-.portfolio-frame[data-playing] {
-  transform: none;
-}
-
-.portfolio-brand--dark .portfolio-frame {
-  background: #222;
-}
-
-.portfolio-frame--horizontal {
-  aspect-ratio: 16 / 9;
-}
-
-.portfolio-frame--vertical {
-  aspect-ratio: 9 / 16;
-}
-
-/* Shared click-to-play YouTube tile (src/components/YouTubeTile.tsx),
-   used on Portfolio and case study pages. Parent sets the size. */
+/* ── Shared click-to-play YouTube tile ──
+   src/components/YouTubeTile.tsx, used on Portfolio and case study pages.
+   The parent sets the size and must be position: relative. */
 .yt-tile {
   position: absolute;
   inset: 0;
@@ -1513,7 +1249,6 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform var(--transition-smooth);
 }
 
 .yt-thumb::after {
@@ -1522,10 +1257,6 @@ body {
   inset: 0;
   background: rgba(0, 0, 0, 0.12);
   transition: background var(--transition);
-}
-
-.yt-thumb:hover img {
-  transform: scale(1.04);
 }
 
 .yt-thumb:hover::after {
@@ -1565,34 +1296,231 @@ body {
   border: 0;
 }
 
+@media (max-width: 768px) {
+  .yt-play {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+/* ── Portfolio Page ──
+   Photo hero, then a Graza-style brand toggle on the side (the pigeon hops
+   to the selected brand) that swaps the video panel. */
+.portfolio-page {
+  background: var(--color-gray-900);
+}
+
+.portfolio-intro {
+  min-height: 78vh;
+  padding: 9rem var(--gutter) 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-white);
+  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.6)),
+    url("/portfolio_hero.jpg") center top / cover no-repeat;
+}
+
+.portfolio-intro .casestudy-label {
+  color: var(--color-on-dark);
+  margin-bottom: 1.25rem;
+}
+
+.portfolio-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: var(--text-display-xl);
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+
+.portfolio-intro-text {
+  font-size: var(--text-md);
+  color: var(--color-on-dark);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.portfolio-library {
+  padding: var(--section-y-sm) var(--gutter) var(--section-y);
+  color: var(--color-white);
+}
+
+.portfolio-library-inner {
+  max-width: var(--content-mid);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Brand toggle */
+.portfolio-toggle {
+  position: sticky;
+  top: 2rem;
+  padding-left: 12px; /* room for the pigeon, which is wider than the dots */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.portfolio-toggle-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.4rem 0;
+  border: 0;
+  background: none;
+  color: var(--color-on-dark-subtle);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-align: left;
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.portfolio-toggle-item:hover,
+.portfolio-toggle-item[aria-selected="true"] {
+  color: var(--color-white);
+}
+
+.portfolio-toggle-dot {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  border: 1.5px solid currentColor;
+  border-radius: var(--radius-full);
+  transition: opacity var(--transition);
+}
+
+.portfolio-toggle-item[aria-selected="true"] .portfolio-toggle-dot {
+  opacity: 0;
+}
+
+.portfolio-pigeon {
+  position: absolute;
+  left: 19px; /* centered on the dot column: padding + half a dot */
+  z-index: 1;
+  width: 38px;
+  height: 38px;
+  transform: translate(-50%, -50%);
+  transition: top 0.5s cubic-bezier(0.34, 1.4, 0.64, 1);
+  pointer-events: none;
+}
+
+.portfolio-pigeon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.portfolio-pigeon-hop {
+  animation: portfolioPigeonHop 0.5s ease-in-out;
+}
+
+@keyframes portfolioPigeonHop {
+  0% {
+    transform: none;
+  }
+  35% {
+    transform: translate(-8px, -12px) rotate(-16deg) scale(1.15);
+  }
+  70% {
+    transform: translate(2px, 2px) rotate(8deg) scale(0.95);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+/* Brand panel */
+.portfolio-brand-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--gap-sm);
+  margin-bottom: 2.5rem;
+}
+
+.portfolio-brand-logo {
+  height: 40px;
+  width: auto;
+  display: block;
+  margin-bottom: 1.25rem;
+  filter: grayscale(100%) brightness(0) invert(1);
+}
+
+.portfolio-brand-stat {
+  font-size: var(--text-md);
+  color: var(--color-on-dark-muted);
+  max-width: 480px;
+  line-height: 1.6;
+}
+
+.portfolio-case-cta {
+  flex-shrink: 0;
+}
+
+/* Video tiles: grow slightly and round off on hover */
+.portfolio-card {
+  margin: 0;
+}
+
+.portfolio-frame {
+  position: relative;
+  overflow: hidden;
+  background: #222;
+  border-radius: var(--radius-sm);
+  transition: transform 0.35s ease, border-radius 0.35s ease, box-shadow 0.35s ease;
+}
+
+@media (hover: hover) {
+  .portfolio-frame:not([data-playing]):hover {
+    transform: scale(1.03);
+    border-radius: 14px;
+    box-shadow: var(--shadow-card);
+  }
+}
+
+.portfolio-frame--horizontal {
+  aspect-ratio: 16 / 9;
+}
+
+.portfolio-frame--vertical {
+  aspect-ratio: 9 / 16;
+}
+
 .portfolio-card-title {
   margin-top: 0.85rem;
   font-size: var(--text-sm);
   font-weight: 500;
   line-height: 1.4;
-  color: var(--color-text);
-}
-
-.portfolio-brand--dark .portfolio-card-title {
   color: var(--color-on-dark);
 }
 
-/* 16:9: one featured video, the rest in a row below */
-.portfolio-feature-row {
+/* 16:9: equal 2-up grid */
+.portfolio-grid-16x9 {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem 1.5rem;
 }
 
-/* 9:16: swipeable rail with snap */
+/* 9:16: autoscrolling rail (PortfolioLibrary.tsx) */
 .portfolio-rail {
   display: flex;
   gap: 1.25rem;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
   scrollbar-width: none;
-  padding-bottom: 0.5rem;
+  padding: 14px 0;
+  margin: -14px 0;
 }
 
 .portfolio-rail::-webkit-scrollbar {
@@ -1600,14 +1528,7 @@ body {
 }
 
 .portfolio-rail-item {
-  flex: 0 0 calc((100% - 3 * 1.25rem) / 4.3);
-  scroll-snap-align: start;
-}
-
-.portfolio-rail--loop {
-  scroll-snap-type: none;
-  padding-top: 0.75rem;
-  margin-top: -0.75rem;
+  flex: 0 0 calc((100% - 3 * 1.25rem) / 3.4);
 }
 
 .portfolio-rail-arrows {
@@ -1635,29 +1556,18 @@ body {
   box-shadow: var(--shadow-cta-hover);
 }
 
-/* Scroll reveal */
-.reveal {
-  opacity: 0;
-  transform: translateY(36px);
-  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
-
 @media (max-width: 1024px) {
+  .portfolio-library-inner {
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+
+  .portfolio-toggle-item {
+    font-size: 1.25rem;
+  }
+
   .portfolio-rail-item {
-    flex-basis: calc((100% - 2 * 1.25rem) / 3.3);
+    flex-basis: calc((100% - 2 * 1.25rem) / 2.6);
   }
 }
 
@@ -1671,19 +1581,19 @@ body {
     font-size: 3.25rem;
   }
 
-  .portfolio-tabs {
-    justify-content: flex-start;
-    gap: 0.5rem;
-    padding: 0.85rem var(--gutter);
+  .portfolio-library {
+    padding: 3rem var(--gutter) 5rem;
   }
 
-  .portfolio-tab {
-    padding: 0.75rem 1.25rem;
+  .portfolio-library-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
-  .portfolio-brand {
-    padding: 4rem var(--gutter);
-    scroll-margin-top: 66px;
+  .portfolio-toggle {
+    position: relative;
+    top: 0;
+    gap: 0.25rem;
   }
 
   .portfolio-brand-header {
@@ -1705,10 +1615,9 @@ body {
     padding: 1rem 2rem;
   }
 
-  .portfolio-feature-row {
+  .portfolio-grid-16x9 {
     grid-template-columns: 1fr;
     gap: 1.75rem;
-    margin-top: 1.75rem;
   }
 
   .portfolio-rail {
@@ -1724,10 +1633,16 @@ body {
   .portfolio-rail-arrows {
     display: none;
   }
+}
 
-  .yt-play {
-    width: 52px;
-    height: 52px;
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-pigeon,
+  .portfolio-frame {
+    transition: none;
+  }
+
+  .portfolio-pigeon-hop {
+    animation: none;
   }
 }
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import YouTubeTile from "@/components/YouTubeTile";
 import { brands, type PortfolioBrand, type PortfolioVideo } from "./data";
 
@@ -10,43 +10,20 @@ function VideoTile({
   id,
   video,
   playState,
-  delay = 0,
-  reveal = true,
   className = "",
 }: {
   id: string;
   video: PortfolioVideo;
   playState: PlayState;
-  delay?: number;
-  reveal?: boolean;
   className?: string;
 }) {
   const playing = playState.playingId === id;
 
-  // Desktop hover: tilt the tile toward the cursor (CSS vars read by .portfolio-frame).
-  const tilt = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (e.pointerType !== "mouse" || playing) return;
-    const r = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
-    e.currentTarget.style.setProperty("--ry", `${x * 10}deg`);
-    e.currentTarget.style.setProperty("--rx", `${-y * 10}deg`);
-  };
-  const untilt = (e: React.PointerEvent<HTMLDivElement>) => {
-    e.currentTarget.style.setProperty("--ry", "0deg");
-    e.currentTarget.style.setProperty("--rx", "0deg");
-  };
-
   return (
-    <figure
-      className={`portfolio-card ${reveal ? "reveal" : ""} ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
+    <figure className={`portfolio-card ${className}`}>
       <div
         className={`portfolio-frame portfolio-frame--${video.format}`}
         data-playing={playing || undefined}
-        onPointerMove={tilt}
-        onPointerLeave={untilt}
       >
         {video.youtubeId && (
           <YouTubeTile
@@ -163,9 +140,9 @@ function VerticalRail({
   const sets = loop ? [0, 1] : [0];
 
   return (
-    <div className="portfolio-rail-wrap reveal">
+    <div className="portfolio-rail-wrap">
       <div
-        className={`portfolio-rail ${loop ? "portfolio-rail--loop" : ""}`}
+        className="portfolio-rail"
         ref={railRef}
         onPointerEnter={(e) => e.pointerType === "mouse" && (hovered.current = true)}
         onPointerLeave={() => (hovered.current = false)}
@@ -179,7 +156,6 @@ function VerticalRail({
               id={`${brand.slug}-v${set}-${i}`}
               video={v}
               playState={playState}
-              reveal={false}
               className="portfolio-rail-item"
             />
           ))
@@ -199,67 +175,98 @@ function VerticalRail({
   );
 }
 
-function BrandSection({
-  brand,
-  index,
-  playState,
-}: {
-  brand: PortfolioBrand;
-  index: number;
-  playState: PlayState;
-}) {
+function BrandPanel({ brand, playState }: { brand: PortfolioBrand; playState: PlayState }) {
   const horizontal = brand.videos.filter((v) => v.format === "horizontal");
   const vertical = brand.videos.filter((v) => v.format === "vertical");
-  const [feature, ...rest] = horizontal;
-  const dark = index % 2 === 0;
 
   return (
-    <section
-      id={brand.slug}
-      className={`portfolio-brand ${dark ? "portfolio-brand--dark" : ""}`}
-    >
-      <div className="portfolio-brand-inner">
-        <div className="portfolio-brand-header reveal">
-          <div>
-            <img src={brand.logo} alt={brand.name} className="portfolio-brand-logo" />
-            <p className="portfolio-brand-stat">{brand.stat}</p>
-          </div>
-          <a href={brand.caseStudyHref} className="cta-button portfolio-case-cta">
-            View Case Study
-          </a>
+    <div className="portfolio-panel fade-in-up" id={`panel-${brand.slug}`} role="tabpanel">
+      <div className="portfolio-brand-header">
+        <div>
+          <img src={brand.logo} alt={brand.name} className="portfolio-brand-logo" />
+          <p className="portfolio-brand-stat">{brand.stat}</p>
         </div>
-
-        {feature && (
-          <div className="portfolio-feature">
-            <VideoTile id={`${brand.slug}-h0`} video={feature} playState={playState} />
-            {rest.length > 0 && (
-              <div className="portfolio-feature-row">
-                {rest.map((v, i) => (
-                  <VideoTile
-                    key={i}
-                    id={`${brand.slug}-h${i + 1}`}
-                    video={v}
-                    playState={playState}
-                    delay={i * 90}
-                  />
-                ))}
-              </div>
-            )}
-          </div>
-        )}
-
-        {vertical.length > 0 && (
-          <VerticalRail brand={brand} videos={vertical} playState={playState} />
-        )}
+        <a href={brand.caseStudyHref} className="cta-button portfolio-case-cta">
+          View Case Study
+        </a>
       </div>
-    </section>
+
+      {horizontal.length > 0 && (
+        <div className="portfolio-grid-16x9">
+          {horizontal.map((v, i) => (
+            <VideoTile key={i} id={`${brand.slug}-h${i}`} video={v} playState={playState} />
+          ))}
+        </div>
+      )}
+
+      {vertical.length > 0 && (
+        <VerticalRail brand={brand} videos={vertical} playState={playState} />
+      )}
+    </div>
+  );
+}
+
+// Graza-style list of brands on the side; the pigeon logo hops to the
+// selected one.
+function BrandToggle({
+  active,
+  onSelect,
+}: {
+  active: string;
+  onSelect: (slug: string) => void;
+}) {
+  const listRef = useRef<HTMLDivElement>(null);
+  const [pigeonY, setPigeonY] = useState<number | null>(null);
+  const [hops, setHops] = useState(0);
+
+  useLayoutEffect(() => {
+    const place = () => {
+      const btn = listRef.current?.querySelector<HTMLElement>(`[data-slug="${active}"]`);
+      if (btn) setPigeonY(btn.offsetTop + btn.offsetHeight / 2);
+    };
+    place();
+    window.addEventListener("resize", place);
+    return () => window.removeEventListener("resize", place);
+  }, [active]);
+
+  return (
+    <div className="portfolio-toggle" ref={listRef} role="tablist" aria-orientation="vertical">
+      {pigeonY !== null && (
+        <span className="portfolio-pigeon" style={{ top: pigeonY }} aria-hidden="true">
+          <img
+            key={hops}
+            src="/paid-creative-pigeon-logo.png"
+            alt=""
+            className={hops ? "portfolio-pigeon-hop" : undefined}
+          />
+        </span>
+      )}
+      {brands.map((b) => (
+        <button
+          key={b.slug}
+          type="button"
+          role="tab"
+          data-slug={b.slug}
+          aria-selected={active === b.slug}
+          aria-controls={`panel-${b.slug}`}
+          className="portfolio-toggle-item"
+          onClick={() => {
+            if (b.slug === active) return;
+            setHops((h) => h + 1);
+            onSelect(b.slug);
+          }}
+        >
+          <span className="portfolio-toggle-dot" aria-hidden="true" />
+          {b.name}
+        </button>
+      ))}
+    </div>
   );
 }
 
 export default function PortfolioLibrary() {
-  const rootRef = useRef<HTMLDivElement>(null);
-  const [playingId, setPlayingId] = useState<string | null>(null);
   const [active, setActive] = useState(brands[0].slug);
+  const [playingId, setPlayingId] = useState<string | null>(null);
 
   // Clicking anywhere outside the playing video stops it and restores the
   // play button. Clicks inside the YouTube iframe never reach the document.
@@ -277,76 +284,21 @@ export default function PortfolioLibrary() {
     };
   }, [playingId]);
 
-  // Fade/slide elements up as they scroll into view.
-  useEffect(() => {
-    const els = rootRef.current?.querySelectorAll(".reveal") ?? [];
-    const io = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            io.unobserve(entry.target);
-          }
-        }),
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
-    );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, []);
-
-  // Highlight the tab for the brand section currently in view.
-  useEffect(() => {
-    let frame = 0;
-    const update = () => {
-      frame = 0;
-      // Use the section under the middle of the screen; at the very bottom of
-      // the page, fall back to the last section that's on screen.
-      const mid = window.innerHeight / 2;
-      const atBottom =
-        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
-      const tops = brands.map((b) => ({
-        slug: b.slug,
-        rect: document.getElementById(b.slug)?.getBoundingClientRect(),
-      }));
-      const current = atBottom
-        ? tops.filter((t) => t.rect && t.rect.top < window.innerHeight).pop()
-        : tops.find((t) => t.rect && t.rect.top <= mid && t.rect.bottom > mid);
-      if (current) setActive(current.slug);
-    };
-    const onScroll = () => {
-      if (!frame) frame = requestAnimationFrame(update);
-    };
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(frame);
-    };
-  }, []);
-
+  const brand = brands.find((b) => b.slug === active) ?? brands[0];
   const playState: PlayState = { playingId, play: setPlayingId };
 
   return (
-    <div ref={rootRef}>
-      <nav className="portfolio-tabs" aria-label="Jump to brand">
-        {brands.map((b) => (
-          <a
-            key={b.slug}
-            href={`#${b.slug}`}
-            className="portfolio-tab"
-            aria-current={active === b.slug ? "true" : undefined}
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById(b.slug)?.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            {b.name}
-          </a>
-        ))}
-      </nav>
-      {brands.map((brand, i) => (
-        <BrandSection key={brand.slug} brand={brand} index={i} playState={playState} />
-      ))}
-    </div>
+    <section className="portfolio-library">
+      <div className="portfolio-library-inner">
+        <BrandToggle
+          active={active}
+          onSelect={(slug) => {
+            setPlayingId(null);
+            setActive(slug);
+          }}
+        />
+        <BrandPanel key={brand.slug} brand={brand} playState={playState} />
+      </div>
+    </section>
   );
 }
