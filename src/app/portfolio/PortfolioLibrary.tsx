@@ -1,90 +1,271 @@
 "use client";
 
-import Link from "next/link";
-import { useState } from "react";
-import { brands } from "./data";
+import { useEffect, useRef, useState } from "react";
+import { brands, type PortfolioBrand, type PortfolioVideo } from "./data";
 
-export default function PortfolioLibrary() {
-  const [filter, setFilter] = useState<string>("all");
-  // Only one video plays at a time; starting another unmounts the previous iframe.
-  const [playingId, setPlayingId] = useState<string | null>(null);
+type PlayState = { playingId: string | null; play: (id: string) => void };
 
-  const visible = filter === "all" ? brands : brands.filter((b) => b.slug === filter);
-  const tiles = visible.flatMap((brand) =>
-    brand.videos.map((video, i) => ({ brand, video, id: `${brand.slug}-${i}` }))
-  );
-  const selected = brands.find((b) => b.slug === filter);
+function VideoTile({
+  id,
+  video,
+  playState,
+  delay = 0,
+  className = "",
+}: {
+  id: string;
+  video: PortfolioVideo;
+  playState: PlayState;
+  delay?: number;
+  className?: string;
+}) {
+  const playing = playState.playingId === id;
 
   return (
-    <section className="portfolio-library">
-      <div className="portfolio-tabs" role="group" aria-label="Filter by brand">
-        {[{ slug: "all", name: "All" }, ...brands].map((b) => (
+    <figure
+      className={`portfolio-card reveal ${className}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <div
+        className={`portfolio-frame portfolio-frame--${video.format}`}
+        data-playing={playing || undefined}
+      >
+        {!video.youtubeId ? null : playing ? (
+          <iframe
+            className="portfolio-player"
+            src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?autoplay=1&playsinline=1&rel=0&modestbranding=1`}
+            title={video.title}
+            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+            allowFullScreen
+          />
+        ) : (
           <button
-            key={b.slug}
             type="button"
-            className="portfolio-tab"
-            aria-pressed={filter === b.slug}
-            onClick={() => setFilter(b.slug)}
+            className="portfolio-thumb"
+            onClick={() => playState.play(id)}
+            aria-label={`Play ${video.title}`}
           >
-            {b.name}
+            <img
+              src={`https://i.ytimg.com/vi/${video.youtubeId}/maxresdefault.jpg`}
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = `https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`;
+              }}
+              alt=""
+              loading="lazy"
+            />
+            <span className="portfolio-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22">
+                <path d="M8 5v14l11-7z" fill="currentColor" />
+              </svg>
+            </span>
           </button>
+        )}
+      </div>
+      <figcaption className="portfolio-card-title">{video.title}</figcaption>
+    </figure>
+  );
+}
+
+function VerticalRail({
+  brand,
+  videos,
+  playState,
+}: {
+  brand: PortfolioBrand;
+  videos: PortfolioVideo[];
+  playState: PlayState;
+}) {
+  const railRef = useRef<HTMLDivElement>(null);
+  const [overflow, setOverflow] = useState(false);
+
+  useEffect(() => {
+    const rail = railRef.current;
+    if (!rail) return;
+    const check = () => setOverflow(rail.scrollWidth > rail.clientWidth + 1);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  const scrollBy = (dir: number) =>
+    railRef.current?.scrollBy({ left: dir * railRef.current.clientWidth * 0.8, behavior: "smooth" });
+
+  return (
+    <div className="portfolio-rail-wrap">
+      <div className="portfolio-rail" ref={railRef}>
+        {videos.map((v, i) => (
+          <VideoTile
+            key={i}
+            id={`${brand.slug}-v${i}`}
+            video={v}
+            playState={playState}
+            delay={Math.min(i, 4) * 90}
+            className="portfolio-rail-item"
+          />
         ))}
       </div>
-
-      <p className="portfolio-intro">
-        Ads we&apos;ve made for men&apos;s lifestyle brands. Click any video to
-        play it, or dive into the case study behind it.
-      </p>
-      {selected && (
-        <Link href={selected.caseStudyHref} className="portfolio-intro-link">
-          View the {selected.name} case study &rarr;
-        </Link>
+      {overflow && (
+        <div className="portfolio-rail-arrows">
+          <button type="button" aria-label="Previous videos" onClick={() => scrollBy(-1)}>
+            &larr;
+          </button>
+          <button type="button" aria-label="Next videos" onClick={() => scrollBy(1)}>
+            &rarr;
+          </button>
+        </div>
       )}
+    </div>
+  );
+}
 
-      <div className="portfolio-grid">
-        {tiles.map(({ brand, video, id }) => (
-          <figure key={id} className="portfolio-card">
-            <div className="portfolio-frame">
-              {!video.youtubeId ? null : playingId === id ? (
-                <iframe
-                  className="portfolio-player"
-                  src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?autoplay=1&playsinline=1&rel=0&modestbranding=1`}
-                  title={video.title}
-                  allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                  allowFullScreen
-                />
-              ) : (
-                <button
-                  type="button"
-                  className="portfolio-thumb"
-                  onClick={() => setPlayingId(id)}
-                  aria-label={`Play ${video.title}`}
-                >
-                  <img
-                    src={`https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`}
-                    alt=""
-                    loading="lazy"
+function BrandSection({
+  brand,
+  index,
+  playState,
+}: {
+  brand: PortfolioBrand;
+  index: number;
+  playState: PlayState;
+}) {
+  const horizontal = brand.videos.filter((v) => v.format === "horizontal");
+  const vertical = brand.videos.filter((v) => v.format === "vertical");
+  const [feature, ...rest] = horizontal;
+  const dark = index % 2 === 0;
+
+  return (
+    <section
+      id={brand.slug}
+      className={`portfolio-brand ${dark ? "portfolio-brand--dark" : ""}`}
+    >
+      <div className="portfolio-brand-inner">
+        <div className="portfolio-brand-header reveal">
+          <div>
+            <img src={brand.logo} alt={brand.name} className="portfolio-brand-logo" />
+            <p className="portfolio-brand-stat">{brand.stat}</p>
+          </div>
+          <a href={brand.caseStudyHref} className="cta-button portfolio-case-cta">
+            View Case Study
+          </a>
+        </div>
+
+        {feature && (
+          <div className="portfolio-feature">
+            <VideoTile id={`${brand.slug}-h0`} video={feature} playState={playState} />
+            {rest.length > 0 && (
+              <div className="portfolio-feature-row">
+                {rest.map((v, i) => (
+                  <VideoTile
+                    key={i}
+                    id={`${brand.slug}-h${i + 1}`}
+                    video={v}
+                    playState={playState}
+                    delay={i * 90}
                   />
-                  <span className="portfolio-play" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="22" height="22">
-                      <path d="M8 5v14l11-7z" fill="currentColor" />
-                    </svg>
-                  </span>
-                </button>
-              )}
-            </div>
-            <figcaption className="portfolio-caption">
-              <div>
-                <span className="portfolio-brand-name">{brand.name}</span>
-                <span className="portfolio-video-title">{video.title}</span>
+                ))}
               </div>
-              <Link href={brand.caseStudyHref} className="portfolio-case-link">
-                Case study &rarr;
-              </Link>
-            </figcaption>
-          </figure>
-        ))}
+            )}
+          </div>
+        )}
+
+        {vertical.length > 0 && (
+          <VerticalRail brand={brand} videos={vertical} playState={playState} />
+        )}
       </div>
     </section>
+  );
+}
+
+export default function PortfolioLibrary() {
+  const rootRef = useRef<HTMLDivElement>(null);
+  const [playingId, setPlayingId] = useState<string | null>(null);
+  const [active, setActive] = useState(brands[0].slug);
+
+  // Clicking anywhere outside the playing video stops it and restores the
+  // play button. Clicks inside the YouTube iframe never reach the document.
+  useEffect(() => {
+    if (!playingId) return;
+    const stop = (e: PointerEvent) => {
+      if (!(e.target as Element).closest("[data-playing]")) setPlayingId(null);
+    };
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setPlayingId(null);
+    document.addEventListener("pointerdown", stop);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("pointerdown", stop);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [playingId]);
+
+  // Fade/slide elements up as they scroll into view.
+  useEffect(() => {
+    const els = rootRef.current?.querySelectorAll(".reveal") ?? [];
+    const io = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        }),
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
+  // Highlight the tab for the brand section currently in view.
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      // Use the section under the middle of the screen; at the very bottom of
+      // the page, fall back to the last section that's on screen.
+      const mid = window.innerHeight / 2;
+      const atBottom =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      const tops = brands.map((b) => ({
+        slug: b.slug,
+        rect: document.getElementById(b.slug)?.getBoundingClientRect(),
+      }));
+      const current = atBottom
+        ? tops.filter((t) => t.rect && t.rect.top < window.innerHeight).pop()
+        : tops.find((t) => t.rect && t.rect.top <= mid && t.rect.bottom > mid);
+      if (current) setActive(current.slug);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  const playState: PlayState = { playingId, play: setPlayingId };
+
+  return (
+    <div ref={rootRef}>
+      <nav className="portfolio-tabs" aria-label="Jump to brand">
+        {brands.map((b) => (
+          <a
+            key={b.slug}
+            href={`#${b.slug}`}
+            className="portfolio-tab"
+            aria-current={active === b.slug ? "true" : undefined}
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById(b.slug)?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            {b.name}
+          </a>
+        ))}
+      </nav>
+      {brands.map((brand, i) => (
+        <BrandSection key={brand.slug} brand={brand} index={i} playState={playState} />
+      ))}
+    </div>
   );
 }
