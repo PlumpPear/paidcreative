@@ -10,24 +10,42 @@ function VideoTile({
   video,
   playState,
   delay = 0,
+  reveal = true,
   className = "",
 }: {
   id: string;
   video: PortfolioVideo;
   playState: PlayState;
   delay?: number;
+  reveal?: boolean;
   className?: string;
 }) {
   const playing = playState.playingId === id;
 
+  // Desktop hover: tilt the tile toward the cursor (CSS vars read by .portfolio-frame).
+  const tilt = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType !== "mouse" || playing) return;
+    const r = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    e.currentTarget.style.setProperty("--ry", `${x * 10}deg`);
+    e.currentTarget.style.setProperty("--rx", `${-y * 10}deg`);
+  };
+  const untilt = (e: React.PointerEvent<HTMLDivElement>) => {
+    e.currentTarget.style.setProperty("--ry", "0deg");
+    e.currentTarget.style.setProperty("--rx", "0deg");
+  };
+
   return (
     <figure
-      className={`portfolio-card reveal ${className}`}
+      className={`portfolio-card ${reveal ? "reveal" : ""} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div
         className={`portfolio-frame portfolio-frame--${video.format}`}
         data-playing={playing || undefined}
+        onPointerMove={tilt}
+        onPointerLeave={untilt}
       >
         {!video.youtubeId ? null : playing ? (
           <iframe
@@ -66,6 +84,11 @@ function VideoTile({
   );
 }
 
+const AUTOSCROLL_PX_PER_SEC = 40;
+
+// 9:16 rail. When the videos don't all fit, the list is rendered twice and
+// drifts left in a seamless loop. It pauses while hovered, touched, off
+// screen, after an arrow click, or while one of its videos is playing.
 function VerticalRail({
   brand,
   videos,
@@ -76,35 +99,115 @@ function VerticalRail({
   playState: PlayState;
 }) {
   const railRef = useRef<HTMLDivElement>(null);
-  const [overflow, setOverflow] = useState(false);
+  const [loop, setLoop] = useState(false);
+  const pausedUntil = useRef(0);
+  const hovered = useRef(false);
+  const inView = useRef(false);
+  const railPlaying = playState.playingId?.startsWith(`${brand.slug}-v`) ?? false;
+  const railPlayingRef = useRef(railPlaying);
+  railPlayingRef.current = railPlaying;
 
+  // Loop only when one set of videos is wider than the rail.
   useEffect(() => {
     const rail = railRef.current;
     if (!rail) return;
-    const check = () => setOverflow(rail.scrollWidth > rail.clientWidth + 1);
+    const check = () => {
+      const item = rail.firstElementChild as HTMLElement | null;
+      if (!item) return;
+      const gap = parseFloat(getComputedStyle(rail).columnGap) || 0;
+      setLoop(videos.length * (item.offsetWidth + gap) > rail.clientWidth + 2);
+    };
     check();
     window.addEventListener("resize", check);
     return () => window.removeEventListener("resize", check);
-  }, []);
+  }, [videos.length]);
 
-  const scrollBy = (dir: number) =>
-    railRef.current?.scrollBy({ left: dir * railRef.current.clientWidth * 0.8, behavior: "smooth" });
+  useEffect(() => {
+    const rail = railRef.current;
+    if (!rail || !loop) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const io = new IntersectionObserver(([e]) => (inView.current = e.isIntersecting));
+    io.observe(rail);
+
+    const setWidth = () => rail.scrollWidth / 2;
+    let pos = rail.scrollLeft;
+    let last = performance.now();
+    let frame = requestAnimationFrame(function step(now) {
+      const dt = Math.min(now - last, 64) / 1000;
+      last = now;
+      // Pick up any manual scrolling (swipe, trackpad, arrows).
+      if (Math.abs(rail.scrollLeft - pos) > 2) pos = rail.scrollLeft;
+      const paused =
+        hovered.current || railPlayingRef.current || !inView.current || now < pausedUntil.current;
+      if (!paused) {
+        pos += AUTOSCROLL_PX_PER_SEC * dt;
+        if (pos >= setWidth()) pos -= setWidth();
+        rail.scrollLeft = pos;
+      }
+      frame = requestAnimationFrame(step);
+    });
+
+    // Keep manual scrolling inside the looped range.
+    const wrap = () => {
+      if (rail.scrollLeft >= setWidth()) rail.scrollLeft -= setWidth();
+    };
+    rail.addEventListener("scroll", wrap, { passive: true });
+
+    return () => {
+      cancelAnimationFrame(frame);
+      io.disconnect();
+      rail.removeEventListener("scroll", wrap);
+    };
+  }, [loop]);
+
+  // Slide a video that starts playing fully into view (it may be half off the edge).
+  useEffect(() => {
+    if (!railPlaying) return;
+    railRef.current
+      ?.querySelector("[data-playing]")
+      ?.closest(".portfolio-rail-item")
+      ?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
+  }, [railPlaying, playState.playingId]);
+
+  const pause = (ms: number) => (pausedUntil.current = performance.now() + ms);
+
+  const scrollBy = (dir: number) => {
+    const rail = railRef.current;
+    if (!rail) return;
+    pause(2500);
+    if (loop && dir < 0 && rail.scrollLeft < rail.clientWidth) {
+      rail.scrollLeft += rail.scrollWidth / 2;
+    }
+    rail.scrollBy({ left: dir * rail.clientWidth * 0.8, behavior: "smooth" });
+  };
+
+  const sets = loop ? [0, 1] : [0];
 
   return (
-    <div className="portfolio-rail-wrap">
-      <div className="portfolio-rail" ref={railRef}>
-        {videos.map((v, i) => (
-          <VideoTile
-            key={i}
-            id={`${brand.slug}-v${i}`}
-            video={v}
-            playState={playState}
-            delay={Math.min(i, 4) * 90}
-            className="portfolio-rail-item"
-          />
-        ))}
+    <div className="portfolio-rail-wrap reveal">
+      <div
+        className={`portfolio-rail ${loop ? "portfolio-rail--loop" : ""}`}
+        ref={railRef}
+        onPointerEnter={(e) => e.pointerType === "mouse" && (hovered.current = true)}
+        onPointerLeave={() => (hovered.current = false)}
+        onTouchStart={() => pause(60_000)}
+        onTouchEnd={() => pause(3000)}
+      >
+        {sets.flatMap((set) =>
+          videos.map((v, i) => (
+            <VideoTile
+              key={`${set}-${i}`}
+              id={`${brand.slug}-v${set}-${i}`}
+              video={v}
+              playState={playState}
+              reveal={false}
+              className="portfolio-rail-item"
+            />
+          ))
+        )}
       </div>
-      {overflow && (
+      {loop && (
         <div className="portfolio-rail-arrows">
           <button type="button" aria-label="Previous videos" onClick={() => scrollBy(-1)}>
             &larr;
