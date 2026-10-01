@@ -211,8 +211,6 @@ function BrandSection({ brand, playState }: { brand: PortfolioBrand; playState: 
 function BrandNav({ active }: { active: string }) {
   const navRef = useRef<HTMLElement>(null);
   const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
-  const [flights, setFlights] = useState(0);
-  const prevActive = useRef(active);
 
   useLayoutEffect(() => {
     const place = () => {
@@ -233,10 +231,6 @@ function BrandNav({ active }: { active: string }) {
     if (nav && item && nav.scrollWidth > nav.clientWidth) {
       nav.scrollTo({ left: item.offsetLeft - nav.clientWidth / 2 + item.offsetWidth / 2, behavior: "smooth" });
     }
-    if (prevActive.current !== active) {
-      prevActive.current = active;
-      setFlights((f) => f + 1);
-    }
     window.addEventListener("resize", place);
     return () => window.removeEventListener("resize", place);
   }, [active]);
@@ -249,11 +243,12 @@ function BrandNav({ active }: { active: string }) {
           style={{ left: pos.x, top: pos.y }}
           aria-hidden="true"
         >
+          {/* Keyed on the brand so the flight animation replays on each move */}
           <img
-            key={flights}
+            key={active}
             src="/paid-creative-pigeon-logo.png"
             alt=""
-            className={flights ? "portfolio-pigeon-fly" : undefined}
+            className="portfolio-pigeon-fly"
           />
         </span>
       )}
