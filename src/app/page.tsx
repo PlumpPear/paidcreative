@@ -2,7 +2,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useRef, useEffect } from "react";
-import { DirectHit, PizzaHeist } from "@/components/pigeon/scenes";
 
 function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -171,9 +170,8 @@ function Stats() {
         </h2>
       </div>
       <div className="stats-grid">
-        {stats.map((s, i) => (
+        {stats.map((s) => (
           <div key={s.label} className="stat-item">
-            {i === 0 && <DirectHit />}
             <div className="stat-number">{s.value}</div>
             <div className="stat-label">{s.label}</div>
             <p className="stat-description">{s.description}</p>
@@ -193,7 +191,6 @@ function FinalCTA() {
         <a href="https://calendar.app.google/rrGjcCYtfnHjAqvz7" target="_blank" rel="noopener noreferrer" className="cta-button">
           Schedule Strategy Session
         </a>
-        <PizzaHeist />
       </div>
     </section>
   );
