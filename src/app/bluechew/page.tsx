@@ -1,5 +1,7 @@
 "use client";
 
+import YouTubeTile from "@/components/YouTubeTile";
+
 function Hero() {
   return (
     <section className="casestudy-hero casestudy-hero--sm casestudy-hero--bluechew">
@@ -122,13 +124,7 @@ function BrandShowcase() {
               }
             >
               {item.type === "video" ? (
-                <iframe
-                  className="casestudy-brand-video"
-                  src={`https://www.youtube.com/embed/${item.youtubeId}`}
-                  title={item.alt}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                />
+                <YouTubeTile youtubeId={item.youtubeId!} title={item.alt} />
               ) : (
                 <img src={item.src} alt={item.alt} className="casestudy-brand-image" />
               )}

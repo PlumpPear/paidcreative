@@ -1,5 +1,7 @@
 "use client";
 
+import YouTubeTile from "@/components/YouTubeTile";
+
 function Hero() {
   return (
     <section className="casestudy-hero">
@@ -105,13 +107,7 @@ function BrandShowcase() {
         <div className="casestudy-brand-video-grid">
           {videos.map((v) => (
             <div key={v.youtubeId} className="casestudy-brand-video-wrapper">
-              <iframe
-                className="casestudy-brand-video"
-                src={`https://www.youtube.com/embed/${v.youtubeId}`}
-                title={v.alt}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
+              <YouTubeTile youtubeId={v.youtubeId} title={v.alt} />
             </div>
           ))}
         </div>

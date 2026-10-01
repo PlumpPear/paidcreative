@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import YouTubeTile from "@/components/YouTubeTile";
 import { brands, type PortfolioBrand, type PortfolioVideo } from "./data";
 
 type PlayState = { playingId: string | null; play: (id: string) => void };
@@ -47,36 +48,13 @@ function VideoTile({
         onPointerMove={tilt}
         onPointerLeave={untilt}
       >
-        {!video.youtubeId ? null : playing ? (
-          <iframe
-            className="portfolio-player"
-            src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?autoplay=1&playsinline=1&rel=0&modestbranding=1`}
+        {video.youtubeId && (
+          <YouTubeTile
+            youtubeId={video.youtubeId}
             title={video.title}
-            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-            allowFullScreen
+            playing={playing}
+            onPlay={() => playState.play(id)}
           />
-        ) : (
-          <button
-            type="button"
-            className="portfolio-thumb"
-            onClick={() => playState.play(id)}
-            aria-label={`Play ${video.title}`}
-          >
-            <img
-              src={`https://i.ytimg.com/vi/${video.youtubeId}/maxresdefault.jpg`}
-              onError={(e) => {
-                e.currentTarget.onerror = null;
-                e.currentTarget.src = `https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`;
-              }}
-              alt=""
-              loading="lazy"
-            />
-            <span className="portfolio-play" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="22" height="22">
-                <path d="M8 5v14l11-7z" fill="currentColor" />
-              </svg>
-            </span>
-          </button>
         )}
       </div>
       <figcaption className="portfolio-card-title">{video.title}</figcaption>

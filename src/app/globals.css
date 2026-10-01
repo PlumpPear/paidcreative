@@ -930,6 +930,7 @@ body {
 }
 
 .casestudy-brand-image-wrapper {
+  position: relative;
   aspect-ratio: 1 / 1;
   overflow: hidden;
   background: var(--color-raised);
@@ -965,6 +966,7 @@ body {
 }
 
 .casestudy-brand-video-wrapper {
+  position: relative;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--color-raised);
@@ -1234,10 +1236,21 @@ body {
 }
 
 .portfolio-intro {
-  padding: 9rem var(--gutter) 2.5rem;
+  min-height: 78vh;
+  padding: 9rem var(--gutter) 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  max-width: var(--content-narrow);
-  margin: 0 auto;
+  color: var(--color-white);
+  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.6)),
+    url("/portfolio_hero.jpg") center top / cover no-repeat;
+}
+
+.portfolio-intro .casestudy-label {
+  color: var(--color-on-dark);
+  margin-bottom: 1.25rem;
 }
 
 .portfolio-title {
@@ -1252,7 +1265,7 @@ body {
 
 .portfolio-intro-text {
   font-size: var(--text-md);
-  color: var(--color-text-muted);
+  color: var(--color-on-dark);
   max-width: 560px;
   margin: 0 auto;
   line-height: 1.7;
@@ -1288,7 +1301,9 @@ body {
   color: var(--color-white);
   padding: 1.1rem 0;
   transform: rotate(-1.5deg) scale(1.03);
-  margin: 1rem 0 2.5rem;
+  margin: -1.75rem 0 2.5rem;
+  position: relative;
+  z-index: 2;
   box-shadow: var(--shadow-cta);
 }
 
@@ -1475,7 +1490,14 @@ body {
   aspect-ratio: 9 / 16;
 }
 
-.portfolio-thumb {
+/* Shared click-to-play YouTube tile (src/components/YouTubeTile.tsx),
+   used on Portfolio and case study pages. Parent sets the size. */
+.yt-tile {
+  position: absolute;
+  inset: 0;
+}
+
+.yt-thumb {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -1486,7 +1508,7 @@ body {
   cursor: pointer;
 }
 
-.portfolio-thumb img {
+.yt-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1494,7 +1516,7 @@ body {
   transition: transform var(--transition-smooth);
 }
 
-.portfolio-thumb::after {
+.yt-thumb::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -1502,15 +1524,15 @@ body {
   transition: background var(--transition);
 }
 
-.portfolio-thumb:hover img {
+.yt-thumb:hover img {
   transform: scale(1.04);
 }
 
-.portfolio-thumb:hover::after {
+.yt-thumb:hover::after {
   background: rgba(0, 0, 0, 0);
 }
 
-.portfolio-play {
+.yt-play {
   position: absolute;
   z-index: 1;
   top: 50%;
@@ -1529,13 +1551,13 @@ body {
   transition: transform var(--transition), box-shadow var(--transition);
 }
 
-.portfolio-thumb:hover .portfolio-play,
-.portfolio-thumb:focus-visible .portfolio-play {
+.yt-thumb:hover .yt-play,
+.yt-thumb:focus-visible .yt-play {
   transform: translate(-50%, -50%) scale(1.12);
   box-shadow: var(--shadow-cta-hover);
 }
 
-.portfolio-player {
+.yt-player {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -1641,7 +1663,8 @@ body {
 
 @media (max-width: 768px) {
   .portfolio-intro {
-    padding: 8rem var(--gutter) 2rem;
+    min-height: 70vh;
+    padding: 8rem var(--gutter) 4rem;
   }
 
   .portfolio-title {
@@ -1702,7 +1725,7 @@ body {
     display: none;
   }
 
-  .portfolio-play {
+  .yt-play {
     width: 52px;
     height: 52px;
   }
