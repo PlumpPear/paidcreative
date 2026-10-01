@@ -2,7 +2,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useRef, useEffect } from "react";
-import { BagelScene, BonkScene } from "@/components/pigeon/ScrollScenes";
 
 function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -57,7 +56,6 @@ function TrustSection() {
 
   return (
     <section className="trust-section">
-      <BonkScene />
       <div className="trust-content">
         <div className="section-header">
           <h2 className="section-title">
@@ -115,7 +113,6 @@ function Testimonials() {
 
   return (
     <section className="testimonials">
-      <BagelScene />
       <div className="section-header">
         <p className="section-label">Client Stories</p>
         <h2 className="section-title">Trusted by 8 and 9 figure Founders</h2>
