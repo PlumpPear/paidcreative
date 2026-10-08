@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import YouTubeTile from "@/components/YouTubeTile";
 import { brands, type PortfolioBrand, type PortfolioVideo } from "./data";
 
@@ -206,74 +206,7 @@ function BrandSection({ brand, playState }: { brand: PortfolioBrand; playState: 
   );
 }
 
-// Graza-style brand list pinned to the side (a sticky row on mobile). The
-// pigeon logo flies to the dot of the brand section currently in view.
-function BrandNav({ active }: { active: string }) {
-  const navRef = useRef<HTMLElement>(null);
-  const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
-
-  useLayoutEffect(() => {
-    const place = () => {
-      const nav = navRef.current;
-      const dot = nav?.querySelector<HTMLElement>(`[data-slug="${active}"] .portfolio-nav-dot`);
-      if (!nav || !dot) return;
-      const n = nav.getBoundingClientRect();
-      const d = dot.getBoundingClientRect();
-      setPos({
-        x: d.left - n.left + nav.scrollLeft + d.width / 2,
-        y: d.top - n.top + d.height / 2,
-      });
-    };
-    place();
-    // Mobile: the nav is a sideways-scrolling row; keep the active brand visible.
-    const nav = navRef.current;
-    const item = nav?.querySelector<HTMLElement>(`[data-slug="${active}"]`);
-    if (nav && item && nav.scrollWidth > nav.clientWidth) {
-      nav.scrollTo({ left: item.offsetLeft - nav.clientWidth / 2 + item.offsetWidth / 2, behavior: "smooth" });
-    }
-    window.addEventListener("resize", place);
-    return () => window.removeEventListener("resize", place);
-  }, [active]);
-
-  return (
-    <nav className="portfolio-nav" ref={navRef} aria-label="Brands">
-      {pos && (
-        <span
-          className="portfolio-pigeon"
-          style={{ left: pos.x, top: pos.y }}
-          aria-hidden="true"
-        >
-          {/* Keyed on the brand so the flight animation replays on each move */}
-          <img
-            key={active}
-            src="/paid-creative-pigeon-logo.png"
-            alt=""
-            className="portfolio-pigeon-fly"
-          />
-        </span>
-      )}
-      {brands.map((b) => (
-        <a
-          key={b.slug}
-          href={`#${b.slug}`}
-          data-slug={b.slug}
-          aria-current={active === b.slug ? "true" : undefined}
-          className="portfolio-nav-item"
-          onClick={(e) => {
-            e.preventDefault();
-            document.getElementById(b.slug)?.scrollIntoView({ behavior: "smooth" });
-          }}
-        >
-          <span className="portfolio-nav-dot" aria-hidden="true" />
-          {b.name}
-        </a>
-      ))}
-    </nav>
-  );
-}
-
 export default function PortfolioLibrary() {
-  const [active, setActive] = useState(brands[0].slug);
   const [playingId, setPlayingId] = useState<string | null>(null);
 
   // Clicking anywhere outside the playing video stops it and restores the
@@ -292,43 +225,13 @@ export default function PortfolioLibrary() {
     };
   }, [playingId]);
 
-  // Track which brand section is under the middle of the screen; at the very
-  // bottom of the page, fall back to the last section that's on screen.
-  useEffect(() => {
-    const update = () => {
-      const mid = window.innerHeight / 2;
-      const atBottom =
-        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
-      const rects = brands.map((b) => ({
-        slug: b.slug,
-        rect: document.getElementById(b.slug)?.getBoundingClientRect(),
-      }));
-      const current = atBottom
-        ? rects.filter((r) => r.rect && r.rect.top < window.innerHeight).pop()
-        : rects.find((r) => r.rect && r.rect.top <= mid && r.rect.bottom > mid);
-      if (current) setActive(current.slug);
-    };
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
-    return () => {
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
-    };
-  }, []);
-
   const playState: PlayState = { playingId, play: setPlayingId };
 
   return (
     <div className="portfolio-library">
-      <aside className="portfolio-nav-col">
-        <BrandNav active={active} />
-      </aside>
-      <div className="portfolio-sections">
-        {brands.map((brand) => (
-          <BrandSection key={brand.slug} brand={brand} playState={playState} />
-        ))}
-      </div>
+      {brands.map((brand) => (
+        <BrandSection key={brand.slug} brand={brand} playState={playState} />
+      ))}
     </div>
   );
 }
