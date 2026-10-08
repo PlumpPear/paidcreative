@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { preconnect } from "react-dom";
 
 const YT_ORIGIN = "https://www.youtube-nocookie.com";
 
@@ -36,6 +37,10 @@ export default function YouTubeTile({
   const start = useRef(() => {});
   start.current = () => (controlled ? onPlay?.() : setOwnPlaying(true));
 
+  // Warm up the connections so the first play starts sooner.
+  preconnect(YT_ORIGIN);
+  preconnect("https://i.ytimg.com");
+
   useEffect(() => {
     setTouch(window.matchMedia("(hover: none) and (pointer: coarse)").matches);
   }, []);
@@ -54,9 +59,16 @@ export default function YouTubeTile({
     };
   }, [controlled, ownPlaying]);
 
-  // Touch: hear when the preloaded player starts playing.
+  // Touch: hear when the preloaded player is tapped or starts loading/playing,
+  // so the thumbnail gets out of the way right away.
   useEffect(() => {
     if (!touch) return;
+    const onBlur = () => {
+      // The page loses focus to the iframe the moment it's tapped.
+      setTimeout(() => {
+        if (document.activeElement === frameRef.current) start.current();
+      });
+    };
     const onMessage = (e: MessageEvent) => {
       if (e.origin !== YT_ORIGIN || e.source !== frameRef.current?.contentWindow) return;
       let data;
@@ -67,10 +79,14 @@ export default function YouTubeTile({
       }
       const state =
         data?.event === "onStateChange" ? data.info : data?.info?.playerState;
-      if (state === 1) start.current();
+      if (state === 1 || state === 3) start.current(); // playing or buffering
     };
+    window.addEventListener("blur", onBlur);
     window.addEventListener("message", onMessage);
-    return () => window.removeEventListener("message", onMessage);
+    return () => {
+      window.removeEventListener("blur", onBlur);
+      window.removeEventListener("message", onMessage);
+    };
   }, [touch]);
 
   // Touch: pause the preloaded player when this tile is told to stop.

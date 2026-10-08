@@ -1299,7 +1299,7 @@ body {
 /* Touch: the player sits underneath and the thumbnail lets taps through */
 .yt-thumb--cover {
   pointer-events: none;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.12s ease;
 }
 
 .yt-tile[data-playing] .yt-thumb--cover {
