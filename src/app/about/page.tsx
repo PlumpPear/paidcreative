@@ -31,7 +31,7 @@ function AboutLetter() {
 
           <h2>Our approach</h2>
           <p>
-            Creative is the biggest driver of paid performance. We manage your
+            Creative is the biggest driver of paid performance. We approach
             advertising with a focus on results and long-term brand equity
             through: <strong>creative strategy, ad production, and media buying.</strong>
           </p>
@@ -39,7 +39,7 @@ function AboutLetter() {
           <h2>Who we work with</h2>
           <p>
             We take on a limited number of partners so we can stay deeply
-            involved. If you&apos;re a DTC brand spending more than $3M+
+            involved. If you&apos;re a DTC brand spending more than $20M+
             annually on paid advertising and looking to improve your creative
             team, send us a note.
           </p>
