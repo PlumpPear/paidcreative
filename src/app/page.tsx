@@ -34,7 +34,7 @@ function Hero() {
           <span className="hero-accent">your brand</span>
         </h1>
         <p className="hero-description">
-          Improve Meta ROAS in 2 weeks with better creative and media buying.
+          Creative that builds your brand AND converts.
         </p>
         <Link href="/case-studies" className="cta-button">
           Case Studies
